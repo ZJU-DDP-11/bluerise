@@ -1,0 +1,36 @@
+<html>
+	<body>
+		<header>
+			<h1>My Settings</h1>
+		</header>
+		<form action="" method="post">
+			<fieldset>
+				<legend>Basic Info</legend>
+				Username: <input disabled="disabled" name="username" type="text"><br>
+				Email: <input name="email" type="text"><br>
+				First Name: <input name="first_name" type="text"><br>
+				Last Name: <input name="last_name" type="text"><br>
+				Old Password: <input name="old_pwd" type="password"><br>
+				New Password: <input name="new_pwd" type="password">
+			</fieldset>
+			<fieldset>
+				<legend>Detailed Info</legend>
+				Organization: <input name="organization" type="text"><br>
+				Website: <input name="website" type="text"><br>
+				About: <textarea cols="40" rows="5"></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>Communication Settings</legend>
+				<input name="subscribe_to_email" type="checkbox">Subscribe to mailings<br>
+				<input name="receive_forum_notifications" type="checkbox">Receive forum notifications
+			</fieldset>
+			<fieldset>
+				<legend>Sharing Settings</legend>
+				<input name="share_profile" type="checkbox">Share profile informations<br>
+				<input name="share_stats" type="checkbox">Share stats<br>
+			</fieldset>
+			<input class="button" name="save" type="submit" value="Save">
+			<a href=""><button type="button">Cancel</button></a>
+		</form>
+	</body>
+</head>
