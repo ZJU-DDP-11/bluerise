@@ -1,36 +1,130 @@
+<!DOCTYPE html>
 <html>
-	<body>
-		<header>
-			<h1>My Settings</h1>
-		</header>
-		<form action="" method="post">
-			<fieldset>
-				<legend>Basic Info</legend>
-				Username: <input disabled="disabled" name="username" type="text"><br>
-				Email: <input name="email" type="text"><br>
-				First Name: <input name="first_name" type="text"><br>
-				Last Name: <input name="last_name" type="text"><br>
-				Old Password: <input name="old_pwd" type="password"><br>
-				New Password: <input name="new_pwd" type="password">
-			</fieldset>
-			<fieldset>
-				<legend>Detailed Info</legend>
-				Organization: <input name="organization" type="text"><br>
-				Website: <input name="website" type="text"><br>
-				About: <textarea cols="40" rows="5"></textarea>
-			</fieldset>
-			<fieldset>
-				<legend>Communication Settings</legend>
-				<input name="subscribe_to_email" type="checkbox">Subscribe to mailings<br>
-				<input name="receive_forum_notifications" type="checkbox">Receive forum notifications
-			</fieldset>
-			<fieldset>
-				<legend>Sharing Settings</legend>
-				<input name="share_profile" type="checkbox">Share profile informations<br>
-				<input name="share_stats" type="checkbox">Share stats<br>
-			</fieldset>
-			<input class="button" name="save" type="submit" value="Save">
-			<a href=""><button type="button">Cancel</button></a>
-		</form>
-	</body>
+<head>
+	<meta charset="utf-8">
+	<title>Blue Rise - My Settings</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/flat-ui.css" rel="stylesheet">
+	<link rel="shortcut icon" href="images/favicon.ico">
 </head>
+
+<body>
+	<div class="container">
+		<!-- <div class="demo-headline">
+			
+		</div> -->
+		
+		<h1>My Settings</h1>
+		
+		<h3 class="demo-panel-title offset1">Basic Info</h3>
+		<div class="row demo-row">
+			<div class="span3 offset2">
+				<input name="username" type="text" value="" disabled="disabled" placeholder="Username-meow" class="span3" />
+			</div>
+			<div class="span3">
+				<input name="email" type="text" value="" placeholder="E-mail" class="span3" />
+			</div>
+			<div class="span3 offset2">
+				<input name="firstname" type="text" value="" placeholder="First Name" class="span3" />
+			</div>
+			<div class="span3">
+				<input name="lastname" type="text" value="" placeholder="Last Name" class="span3" />
+			</div>
+			<div class="span3 offset2">
+				<input name="oldpassword" type="password" value="" placeholder="Old Password" class="span3" />
+			</div>
+			<div class="span3">
+				<input name="newpassword" type="password" value="" placeholder="New Password" class="span3" />
+			</div>
+		</div>
+		
+		<h3 class="demo-panel-title offset1">Detailed Info</h3>
+		<div class="row demo-row">
+			<div class="span3 offset2">
+				<input name="organization" type="text" value="" placeholder="Organization" class="span3" />
+				<input name="webset" type="text" value="" placeholder="Website" class="span3" />
+			</div>
+			<div class="span8 offset2">
+				<textarea name="about" value="" placeholder="About" rows="5" class="span8"></textarea>
+			</div>
+		</div>
+		
+		<h3 class="demo-panel-title offset1">Communication Settings</h3>
+		<div class="row demo-row">
+			<div class="span6 offset2">
+				<label class="checkbox" for="receive-email">
+					<span class="icon"></span>
+					<span class="icon-to-fade"></span>
+					<input name="receive-email" type="checkbox" value id="receive-email">Subscribe to mailings
+				</label>
+				<label class="checkbox" for="receive-notif">
+					<span class="icon"></span>
+					<span class="icon-to-fade"></span>
+					<input name="receive-notif" type="checkbox" value id="receive-notif">Receive forum nitifications
+				</label>
+			</div>
+		</div>
+		
+		<h3 class="demo-panel-title offset1">Sharing Settings</h3>
+		<div class="row demo-row">
+			<div class="span6 offset2">
+				<label class="checkbox" for="share-profile">
+					<span class="icon"></span>
+					<span class="icon-to-fade"></span>
+					<input name="share-profile" type="checkbox" value id="share-profile">Share profile informations
+				</label>
+				<label class="checkbox" for="share-stats">
+					<span class="icon"></span>
+					<span class="icon-to-fade"></span>
+					<input name="share-stats" type="checkbox" value id="share-stats">Share status
+				</label>
+			</div>
+		</div>
+		
+		<div class="row demo-row"></div>
+		
+		<div class="row demo-row">
+			<div class="span3 offset2">
+				<input name="save" type="submit" class="btn btn-large btn-block btn-success" value="Save">
+			</div>
+			<div class="span3 offset1">
+				<a href="#" class="btn btn-large btn-block btn-warning">Cancel</a>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+	<script src="js/jquery.dropkick-1.0.0.js"></script>
+	<script src="js/custom_checkbox_and_radio.js"></script>
+	<script src="js/custom_radio.js"></script>
+	<script src="js/jquery.tagsinput.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/jquery.placeholder.js"></script>
+	<script src="http://vjs.zencdn.net/c/video.js"></script>
+	<script src="js/application.js"></script>
+	<!--[if lt IE 8]>
+	  <script src="js/icon-font-ie7.js"></script>
+	  <script src="js/icon-font-ie7-24.js"></script>
+	<![endif]-->
+	<script type="text/javascript">
+	  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	  try{
+		var pageTracker = _gat._getTracker("UA-19972760-2");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>
