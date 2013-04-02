@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #666;
+  margin: 10px 13px 10px 13px;
+}
+::selection {
+  background: rgba(0,0,0,.7);
+  color: #fff;
+}
+::-moz-selection {
+  background: rgba(0,0,0,.7);
+  color: #fff;
+}
+a {
+  color: #0069d6;
+}
+a:hover {
+  color: #0050a3;
+  text-decoration: none;
+}
+a img {
+  border: none;
+}
+p {
+  margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #6c71c4;
+  line-height: 36px;
+}
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 13px;
+}
+hr {
+  margin: 0 0 19px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+blockquote {
+  padding: 13px 13px 21px 15px;
+  margin-bottom: 18px;
+  font-family:georgia,serif;
+  font-style: italic;
+}
+blockquote:before {
+  content:"\201C";
+  font-size:40px;
+  margin-left:-10px;
+  font-family:georgia,serif;
+  color:#eee;
+}
+blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+code, pre {
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+  background-color: #fee9cc;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+em {
+  font-style: normal;
+  font-weight: bold;
+  color: #555;
+  border-radius: 3px;
+  background-color: #fffdf7;
+}
+pre {
+  background-color: #fffdf7;
+  display: block;
+  padding: 14px;
+  font-size: 12px;
+  margin: 0 0 10px 0;
+  line-height: 15px;
+  border: 1px solid #d9d9d9;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+pre.error {
+  background-color: #fff2fd;
+}
+pre code {
+  background-color: transparent;
+  color: #bc670f;
+  font-size: 12px;
+}
+li {
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 940px) {
+  body {
+    width: 900px;
+    margin:10px auto;
+  }
+}
+
+td, th {
+  vertical-align: top;
+  padding: 2px 6px;
+}
+h2 {
+  margin-bottom: 10px;
+}
+table ul {
+  margin: 0;
+  padding: 0 0 0 0;
+  list-style-type: none;
+}
+.required {
+  background-color: #ff8000;
+  color: white;
+}
+.optional {
+  background-color: #5fce04;
+  color: white;
+}
+
+td:last-child {
+  max-width: 300px;
+}
+</style>
+<title>Bluerise API Reference</title>
+</head>
+
+<body>
+<h1>Bluerise API Reference</h1>
+
+
+<pre style="line-height: 20px;">
+<code class="required">parameter</code>: required parameter
+<code class="optional">parameter</code>: optional parameter
+</pre>
+
+<hr />
+
+<h2>HTTP Status Code</h2>
+
+<ul>
+  <li><code>200</code> Normal</li>
+  <li><code>400</code> Request Syntax Error</li>
+  <li><code>403</code> Not Authenticated</li>
+  <li><code>404</code> Resource Not Found</li>
+  <li><code>503</code> Server Error</li>
+</ul>
+
+<hr />
+
+<h2>API Specification</h2>
+
+<table>
+
+<thead>
+<tr>
+<th align="left">Address</th>
+<th align="left">Method</th>
+<th align="left">Parameters</th>
+<th align="left">Return</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+  <td align="left">/api/version/</td>
+  <td align="left"><code>GET</code></td>
+  <td align="left">none</td>
+  <td align="left"><pre>{
+  "version": "2013-04-01"
+}</pre></td>
+  <td align="left">API version.</td>
+</tr>
+
+<tr>
+  <td align="left">/post/</td>
+  <td align="left"><code>POST</code></td>
+  <td align="left">
+  	<ul>
+      <li><code class="required">str</code> api_key</li>
+      <li><code class="optional">str</code> timestamp</li>
+      <li><code class="required">str</code> description</li>
+      <li><code class="required">str</code> data</li>
+      <li><code class="required">str</code> unit</li>
+    </ul>
+  </td>
+  <td align="left"><code>0</code> success.</td>
+  <td align="left">Post data to server. If <code>timestamp</code> is not provided, system time will be used.</td>
+</tr>
+
+</tbody>
+</table>
+
+<br />
+
+</body>
+</html>
