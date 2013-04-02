@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
-	<h>register</h>
-	<form>
+<head>
+	<meta charset="utf-8">
+	<title>Blue Rise - Register</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/flat-ui.css" rel="stylesheet">
+	<link rel="shortcut icon" href="images/favicon.ico">
+</head>
+	<div class = "container">
+		<div class = "page-header">
+			<h1>Register</h1>
+		</div>
+		<div class = "row demo-row">
+			<form action="" method="post">
+				<div class="span3 offset2">
+					<div class = "row demo-row">
+						<input name="First Name" placeholder="First Name" type="text">
+						<input name="Last Name" placeholder="Last Name" type="text">
+						<input name="Age" placeholder="Age" type="text">
+						<input name="Handle" placeholder="Handle" type="text">
+					</div>
+					<div class = "row demo-row">
+						male:&nbsp;<input type="radio" checked="checked" name="Sex" value="male"/>
+						female:&nbsp;<input type="radio" checked="checked" name="Sex" value="female"/>
+					</div>
 
-	<input name="Name" placeholder="First Name"><br>
-	<input name="Last Name" placeholder="Last Name"><br>
-	<input name="Age" placeholder="Age"><br>
-	<input name="Handle" placeholder="Handle"><br>
-	male:<input type="radio" checked="checked" name="Sex" value="male"/>
-	female:<input type="radio" checked="checked" name="Sex" value="female"/><br>
-	<input type ="password" name="Password" placeholder="Password"><br>
-	<input type ="password"  name="ConfirmPassword" placeholder="Confirm Password"><br>
-	<input type="email" name="email" placeholder="test@test.com"><br>
-	<input type="submit" value="Submit" class="submit">
-	</form>
+					<div class = "row demo-row">
+						<input type ="password" name="Password" placeholder="Password">
+						<input type ="password"  name="ConfirmPassword" placeholder="Confirm Password">
+						<input type="email" name="email" placeholder="example@example.com">
+						<input type="submit" value="Submit" class="btn btn-large btn-block btn-success">
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
 </html>
 	
