@@ -3,6 +3,18 @@
 
 <div id="chart"></div>
 
+<style type="text/css">
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 6px 8px;
+  font: 12px sans-serif;
+  background: #ffb515;
+  border-radius: 6px;
+  color: white;
+}
+</style>
+
 <script type="text/javascript">
 var data_x = [4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3];
 var data_y = [2660.43, 630.76, 998.77, 2728.24, 316.95, 523.00, 286.97, 1547.14, 1131.29, 2676.57, 559.24, 698.57];
@@ -42,20 +54,40 @@ function maketm(tmid, tmdata, tmdmax) {
     })
     .attr("stroke-width", "4px");
   
+  var tooltip = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
   var circles = svg.selectAll("circle")
-                   .data(tmdata)
-                   .enter()
-                   .append("circle")
-                   .attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;")
-                   .attr("r", 5)
-                   .attr("fill", "#ffffff")
-                   .attr("stroke", "#cee2e9")
-                   .attr("stroke-width", "2.5px");
-  circles.attr("cx", function(d, i) {
-    return calcx(i);
-  }).attr("cy", function(d) {
-    return calcy(d, tmdmax);
-  });
+    .data(tmdata)
+    .enter()
+    .append("circle")
+    .attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;")
+    .attr("r", 5)
+    .attr("fill", "#ffffff")
+    .attr("stroke", "#cee2e9")
+    .attr("stroke-width", "2.5px")
+    .attr("cx", function(d, i) {
+      return calcx(i);
+    })
+    .attr("cy", function(d) {
+      return calcy(d, tmdmax);
+    })
+    .on("mouseover", function(d, i) {
+      d3.select(this).style("stroke", "#ffb515");
+      tooltip.transition()        
+        .duration(200)      
+        .style("opacity", .9);      
+      tooltip.html(d)
+        .style("left", d3.event.pageX + "px")     
+        .style("top", d3.event.pageY - 30 + "px"); 
+    })
+    .on("mouseout", function() {
+      d3.select(this).style("stroke", "#cee2e9");
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", 0);
+    });
 
   svg.selectAll("text")
      .data(data_x)
