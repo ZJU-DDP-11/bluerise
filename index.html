@@ -1,16 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 	<head>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/flat-ui.css" rel="stylesheet">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 </head>
 	 <body>
-		<div class="container-fluid">
+		<div class="container-fluid" style="white-space:nowrap;">
 			<h1 class="demo-panel-title offset1">BlueRise</h1>
 			<div class="row demo-row">
 				<div class="offset1">
+					<header>
 					<div class="navbar navbar-inverse">
-						<div class="navbar-inner">
+						<div class="navbar-inner" style="width:1048px;">
 							<div class="container">
 								<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 									<span class="icon-bar"></span>
@@ -20,31 +23,21 @@
 								<div class="nav-collapse collapse">
 									<ul class="nav">
 										<li>
-											<a href="#">
-												Menu Item
+											<a href="index.html">
+												Home
 												<span class="navbar-unread">1</span>
 											</a>
 										</li>
-										<li >
-											<a href="#">
+										<li>
+											<a href="support.html">
 												Support
+												<span class="navbar-unread">1</span>
 											</a>
-											<ul>
-												<li><a href="#">Element One</a></li>
-												<li>
-													<a href="#">Sub menu</a>
-													<ul>
-														<li><a href="#">Element One</a></li>
-														<li><a href="#">Element Two</a></li>
-														<li><a href="#">Element Three</a></li>
-													</ul> <!-- /Sub menu -->
-												</li>
-												<li><a href="#">Element Three</a></li>
-											</ul> <!-- /Sub menu -->
 										</li>
+										
 										<li>
 											<a href="#">
-												How it works
+												How It Works
 												<span class="navbar-unread">1</span>
 											</a>
 										</li>
@@ -58,10 +51,11 @@
 								</div><!--/.nav-collapse -->
 							</div><!--container-->
 						</div><!--navbar-inner-->
+						</header>
 					</div>
 				</div>
-				<div class="offset1">
-					<div class="row demo-samples">
+				<div class="row demo-samples offset1"  style="width:1048px;white-space:nowrap;">
+					
 						<div class="span5">
 							<div class="tile">
 								<ul>
@@ -94,7 +88,7 @@
 								<a href="register.html" class="btn btn-large btn-block btn-primary">Register</a>
 							</div>
 						</div>
-						<div class="span7 demo-video offset1">
+						<div class="span7 demo-video" style="white-space:nowrap;">
 							<!--[if !IE]> -->
 							<video class="video-js" controls
 								preload="auto" width="620" height="349" poster="images/video/poster.jpg" data-setup="{}">
@@ -111,14 +105,14 @@
 								</video>
 								<![endif]-->
 						</div> <!-- /video -->
-					</div>
+					
 				</div>
 			</div>
 		</div>
-		<footer>
-			<div class="container">
+		<footer class="offset1"style="width:1048px;white-space:nowrap;">
+			<div class="container"style="width:1048px;white-space:nowrap;">
 				<div class="row">
-					<div class="span12">
+					<table class="span12">
 						<div class="span2"><a href="#">site map</a></div>
 						<div class="span2"><a href="#">Join us</a></div>
 						<div class="span2"><a href="#">Privacy policy</a></div>
@@ -131,7 +125,7 @@
 							products to the world!</p>
 						</div>
 								
-					</div>
+					</table>
 						
 				</div>
 					

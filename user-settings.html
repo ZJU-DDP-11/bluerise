@@ -49,7 +49,7 @@
 
 <body>	
 	<h1 class="demo-panel-title offset1">BlueRise</h1>
-	
+
 	<div class="navbar navbar-inverse offset1">
 		<div class="navbar-inner" style="width:1048px;">
 			<div class="container">
@@ -61,7 +61,7 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li>
-							<a href="homepage.html">
+							<a href="index.html">
 								Home
 								<span class="navbar-unread">1</span>
 							</a>
@@ -85,25 +85,48 @@
 								<span class="navbar-unread">1</span>
 							</a>
 						</li>
-					</ul>
+					</ul><!--navlist-->
 				</div><!--/.nav-collapse -->
 			</div><!--container-->
 		</div><!--navbar-inner-->
 	</div><!--navbar-inverse-->
+	<!-- <div class="accordion span3" id="accordion2" style="margin-left: 1024px;">
+		<div class="accordion-group">
+			<div class="accordion-heading" style="height:40px">
+				<div class="todo-icon fui-man-16" style="padding: 0; margin: 5px 5px 0 5px;"></div>
+					<div class="accordion-toggle" style="margin-top:7px" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+						User 
+					</div>
+				</div>todo-icon
+				<div id="collapseOne" class="accordion-body collapse">
+					<div class="todo-icon fui-settings-16" style="padding: 0; margin: 5px 5px 0 5px;"></div>
+					<div class="accordion-inner">
+						User Setting
+					</div>
+					<div class="todo-icon fui-eye-16"style="padding: 0; margin: 5px 5px 0 5px;"></div>
+					<div class="accordion-inner">
+						Device
+					</div>
+					<div class="todo-icon fui-cross-16" style="padding: 0; margin: 5px 5px 0 5px;"></div>
+					<div class="accordion-inner">
+						Log-out
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> --><!--accordion span3-->
 
 	<div class="container">
 		<h3 class="demo-panel-title offset1">Basic Info</h3>
 		<div class="row demo-row">
 			<div class="span3 offset2">
-				<input name="username" type="text" value="" disabled="disabled" placeholder="Username-meow" class="span3" />
+				<!-- <input name="username" type="text" value="" disabled="disabled" placeholder="Username-meow" class="span3" /> -->
+				<input name="email" type="text" value="" disabled="disabled" placeholder="meow@meow.com" class="span3" />
 			</div>
 			<div class="span3">
-				<input name="email" type="text" value="" placeholder="E-mail" class="span3" />
-			</div>
-			<div class="span3 offset2">
 				<input name="password" type="password" value="" placeholder="Password" class="span3" />
 			</div>
-			<div class="span3">
+			<div class="span3 offset2">
 				<a href="#" class="btn btn-large btn-block btn-info">Change Password</a>
 				<!-- <input name="newpassword" type="password" value="" placeholder="New Password" class="span3" /> -->
 			</div>
@@ -152,7 +175,6 @@
 		</div>
 
 		<div class="row demo-row"></div>
-
 	</div><!--container-->
 	
 	<footer class="offset1"style="width:1048px;white-space:nowrap;">
@@ -185,6 +207,9 @@
 	<script src="js/jquery.placeholder.js"></script>
 	<script src="http://vjs.zencdn.net/c/video.js"></script>
 	<script src="js/application.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
 	<!--[if lt IE 8]>
 	  <script src="js/icon-font-ie7.js"></script>
 	  <script src="js/icon-font-ie7-24.js"></script>
