@@ -11,12 +11,23 @@
 		  .word{
 			  overflow:hidden;
 		  }
+		  #accordion2 {
+		  	left: 906px;
+		  	background-color: white;
+		  	position: absolute;
+		  	top: 30px;
+		  	width: 220px;
+		  	text-align: center;
+		  }
+		  #accordion2 .row {
+		  	height: 40px;
+		  }
 	  </style>
 </head>
 <body>
 <header>
 	<h1 class="demo-panel-title offset1">BlueRise</h1>
-   	<div class="accordion" id="accordion2" style="margin-left:960px; position:absolute;margin-top:10px; width:220px;text-align:center;">
+   	<div class="accordion" id="accordion2">
    		<div class="accordion-group" >
    			<div class="accordion-heading row">
    				<div class="todo-icon fui-man-16" style="padding:0;margin:5px 5px 0 40px;"></div>
@@ -41,7 +52,7 @@
    		</div>
 	</div>
 	<div class="offset1 row-fluid span8">
-		<div class="navbar navbar-inverse span5">
+		<div class="navbar navbar-inverse span9">
 			<div class="navbar-inner">
 				<div class="container">
 					<div class="nav-collapse collapse">
