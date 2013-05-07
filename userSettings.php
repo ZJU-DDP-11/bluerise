@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="lib/css/bootstrap.css" rel="stylesheet">
 	<link href="lib/css/flat-ui.css" rel="stylesheet">
-	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="shortcut icon" href="lib/images/favicon.ico">
+	<link href="lib/css/bootstrap-responsive.css" rel="stylesheet">
 	<style type="text/css">
 	  body {
 		padding-top: 20px;
@@ -44,7 +45,6 @@
 		margin-top: 28px;
 	  }
 	</style>
-	<link href="css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 
 <body>	
@@ -91,8 +91,9 @@
 		</div><!--navbar-inner-->
 	</div><!--navbar-inverse-->
 
-	<form class="form-horizontal" method="post" action="userSettingsAction.php">
-		<?php
+	<form method="post" action="userSettingsAction.php">
+		<div class="container">
+			<!-- <?php
 			$email = $_SESSION['username'];
 			$sql = "SELECT * FROM user WHERE username = '$email'";
 			$result = mysqli_query($con, $sql);
@@ -101,12 +102,11 @@
 			$website = $row['website'];
 			$about = $row['about'];
 			$receive_notification = $row['receive_notification'];
-		?>
-		<div class="container">
+			?> -->
 			<h3 class="demo-panel-title offset1">Basic Info</h3>
 			<div class="row demo-row">
 				<div class="span3 offset2">
-					<input name="email" type="text" disabled="disabled" value="<?php echo $email; ?>" class="span3" />
+					<input name="email" type="text" disabled="disabled" value="<?php echo $email; ?>" placeholder="meow@meow.com" class="span3" />
 				</div>
 				<div class="span3">
 					<a href="#" class="btn btn-large btn-block btn-info">Change Password</a>
@@ -152,19 +152,10 @@
 
 			<div class="row demo-row">
 				<div class="span3 offset2">
-					<a href="#" class="btn btn-large btn-block btn-inverse">Delete Personal Data</a>
-				</div>
-				<div class="span3 offset1">
-					<a href="#" class="btn btn-large btn-block btn-danger">Delete Account</a>
-				</div>
-			</div>
-			
-			<div class="row demo-row">
-				<div class="span3 offset2">
 					<input type="submit" class="btn btn-large btn-block btn-success" value="Save">
 				</div>
 				<div class="span3 offset1">
-					<a href="#" class="btn btn-large btn-block btn-warning">Cancel</a>
+					<a href="deleteAccount.php" class="btn btn-large btn-block btn-danger">Delete Account</a>
 				</div>
 			</div>
 
