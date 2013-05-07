@@ -3,16 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<title>Blue Rise - My Settings</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/flat-ui.css" rel="stylesheet">
 	<link rel="shortcut icon" href="images/favicon.ico">
-	<style type="text/css">
+
+
+	<style type="text/css">  
+	  /*h1 {background-color:#FCFEE7}*/  
+	  /*h3 {background-color:}*/
 	  body {
+		background-image:url(GitHub\bluerise\pic\bgpic.jpg);
+		background-color:#D3E1FE;
 		padding-top: 20px;
 		padding-bottom: 40px;
 	  }
-	
+	  div {
+		background-color:#FDECCE;
+		background-clip:content-box;
+		border:1px solid #FFF;
+	  }
 	  /* Custom container */
 	  .container-narrow {
 		margin: 0 auto;
@@ -43,15 +53,17 @@
 	  .marketing p + h4 {
 		margin-top: 28px;
 	  }
-	</style>
+	.demo-panel-title.offset1 {
+	font-family: Tahoma, Geneva, sans-serif;
+}
+    </style>
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 
 <body>	
-	<h1 class="demo-panel-title offset1">BlueRise</h1>
+	<h1 class="demo-panel-title offset1" style="color:#1E3148" >BlueRise</h1>
 
 	<div class="navbar navbar-inverse offset1">
-		<div class="navbar-inner" style="width:1048px;">
 			<div class="container">
 				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>
@@ -61,28 +73,28 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li>
-							<a href="index.html">
+							<a href="index-BR.html">
 								Home
-								<span class="navbar-unread">1</span>
+								<span class="navbar-unread"></span>
 							</a>
 						</li>
 						<li>
-							<a href="support.html">
+							<a href="support-BR.html">
 								Support
-								<span class="navbar-unread">1</span>
+								<span class="navbar-unread"></span>
 							</a>
 						</li>
 						
 						<li>
-							<a href="#">
+							<a href="howItWorks-BR.html">
 								How It Works
-								<span class="navbar-unread">1</span>
+								<span class="navbar-unread"></span>
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="aboutUs-BR">
 								About Us
-								<span class="navbar-unread">1</span>
+								<span class="navbar-unread"></span>
 							</a>
 						</li>
 					</ul><!--navlist-->
@@ -90,46 +102,19 @@
 			</div><!--container-->
 		</div><!--navbar-inner-->
 	</div><!--navbar-inverse-->
-	<!-- <div class="accordion span3" id="accordion2" style="margin-left: 1024px;">
-		<div class="accordion-group">
-			<div class="accordion-heading" style="height:40px">
-				<div class="todo-icon fui-man-16" style="padding: 0; margin: 5px 5px 0 5px;"></div>
-					<div class="accordion-toggle" style="margin-top:7px" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-						User 
-					</div>
-				</div>todo-icon
-				<div id="collapseOne" class="accordion-body collapse">
-					<div class="todo-icon fui-settings-16" style="padding: 0; margin: 5px 5px 0 5px;"></div>
-					<div class="accordion-inner">
-						User Setting
-					</div>
-					<div class="todo-icon fui-eye-16"style="padding: 0; margin: 5px 5px 0 5px;"></div>
-					<div class="accordion-inner">
-						Device
-					</div>
-					<div class="todo-icon fui-cross-16" style="padding: 0; margin: 5px 5px 0 5px;"></div>
-					<div class="accordion-inner">
-						Log-out
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> --><!--accordion span3-->
+
 
 	<div class="container">
-		<h3 class="demo-panel-title offset1">Basic Info</h3>
+		<h3 class="demo-panel-title offset1" style="color:#1E3148">Basic Info</h3>
 		<div class="row demo-row">
-			<div class="span3 offset2">
-				<!-- <input name="username" type="text" value="" disabled="disabled" placeholder="Username-meow" class="span3" /> -->
-				<input name="email" type="text" value="" disabled="disabled" placeholder="meow@meow.com" class="span3" />
-			</div>
+
 			<div class="span3">
-				<a href="#" class="btn btn-large btn-block btn-info">Change Password</a>
+				<a href="changePassword-BR.html" class="btn btn-large btn-block btn-info">Change Password</a>
 				<!-- <input name="password" type="password" value="" placeholder="Password" class="span3" /> -->
 			</div>
 		</div>
 		
-		<h3 class="demo-panel-title offset1">Detailed Info</h3>
+		<h3 class="demo-panel-title offset1" style="color:#1E3148">Detailed Info</h3>
 		<div class="row demo-row">
 			<div class="span3 offset2">
 				<input name="organization" type="text" value="" placeholder="Organization" class="span3" />
@@ -140,7 +125,7 @@
 			</div>
 		</div>
 		
-		<h3 class="demo-panel-title offset1">Communication Settings</h3>
+		<h3 class="demo-panel-title offset1" style="color:#1E3148">Communication Settings</h3>
 		<div class="row demo-row">
 			<div class="span6 offset2">
 				<label class="checkbox" for="receive-email">
@@ -151,15 +136,13 @@
 			</div>
 		</div>
 
-		<div class="row demo-row"></div>
-
 		<div class="row demo-row">
 			<div class="span3 offset2">
 				<a href="#" class="btn btn-large btn-block btn-inverse">Delete Personal Data</a>
+                </br>
+                <a href="#" class="btn btn-large btn-block btn-danger">Delete Account</a>
 			</div>
-			<div class="span3 offset1">
-				<a href="#" class="btn btn-large btn-block btn-danger">Delete Account</a>
-			</div>
+
 		</div>
 		
 		<div class="row demo-row">
@@ -171,28 +154,6 @@
 			</div>
 		</div>
 
-		<div class="row demo-row"></div>
-	</div><!--container-->
-	
-	<footer class="offset1"style="width:1048px;white-space:nowrap;">
-		<div class="container"style="width:1048px;white-space:nowrap;">
-			<div class="row">
-				<table class="span12">
-					<div class="span2"><a href="#">site map</a></div>
-					<div class="span2"><a href="#">Join us</a></div>
-					<div class="span2"><a href="#">Privacy policy</a></div>
-					<div class="span2"><a href="#">Team of use</a></div>
-					<div class="span2"><a href="#">contact</a></div>
-					<div class="span12">
-					<h4>Where the Internet of things is being built</h4>
-					<p>Connect devices and apps on the BlueRise platform,
-						exchange data and ideas with developers, and bring smart
-						products to the world!</p>
-					</div>
-				</table>
-			</div>
-		</div>
-	</footer>
 
 	<script src="js/jquery-1.8.2.min.js"></script>
 	<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
