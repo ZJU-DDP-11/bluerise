@@ -1,5 +1,4 @@
-<html>
-<body>
+<?php include 'header.php'; ?>
 	<table>
 		<tr>
 			<td><h2>Title</h2></td>		
@@ -17,5 +16,4 @@
 			<td><input type="submit" value="Create" ,name="a" method="GET"></td>
 		</tr>
 	</table>
-</body>
-</html>
+<?php include 'footer.php'; ?>
