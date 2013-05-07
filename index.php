@@ -1,16 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 	<head>
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/flat-ui.css" rel="stylesheet">
+		<link href="lib/css/bootstrap.css" rel="stylesheet">
+		<link href="lib/css/flat-ui.css" rel="stylesheet">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 </head>
 	 <body>
-		<div class="container-fluid">
+		<div class="container-fluid" style="white-space:nowrap;">
 			<h1 class="demo-panel-title offset1">BlueRise</h1>
 			<div class="row demo-row">
 				<div class="offset1">
+					<header>
 					<div class="navbar navbar-inverse">
-						<div class="navbar-inner">
+						<div class="navbar-inner" style="width:1048px;">
 							<div class="container">
 								<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 									<span class="icon-bar"></span>
@@ -21,27 +24,17 @@
 									<ul class="nav">
 										<li>
 											<a href="#">
-												Menu Item
+												Home
 												<span class="navbar-unread">1</span>
 											</a>
 										</li>
-										<li >
-											<a href="#">
+										<li>
+											<a href="support.html">
 												Support
+												<span class="navbar-unread">1</span>
 											</a>
-											<ul>
-												<li><a href="#">Element One</a></li>
-												<li>
-													<a href="#">Sub menu</a>
-													<ul>
-														<li><a href="#">Element One</a></li>
-														<li><a href="#">Element Two</a></li>
-														<li><a href="#">Element Three</a></li>
-													</ul> <!-- /Sub menu -->
-												</li>
-												<li><a href="#">Element Three</a></li>
-											</ul> <!-- /Sub menu -->
 										</li>
+										
 										<li>
 											<a href="#">
 												How it works
@@ -58,10 +51,11 @@
 								</div><!--/.nav-collapse -->
 							</div><!--container-->
 						</div><!--navbar-inner-->
+						</header>
 					</div>
 				</div>
-				<div class="offset1">
-					<div class="row demo-samples">
+				<div class="row demo-samples offset1"  style="width:1048px;white-space:nowrap;">
+					
 						<div class="span5">
 							<div class="tile">
 								<ul>
@@ -87,14 +81,14 @@
 							</div><!-- tile -->
 		  
 							<div class="span4 " style="margin-top:20px";>
-								<a href="hp with acc.html" class="btn btn-large btn-block btn-info">Login</a>
+								<a class="btn btn-large btn-block btn-info">Login</a>
 							</div>
 							<div class="span4"><a class="login-link" href="#">Lost your password?</a></div>
 							<div class="span4 "style="margin-top:10px";>
-								<a href="register.html" class="btn btn-large btn-block btn-primary">Register</a>
+								<a  href="#myModal"data-toggle="modal" role="button" class="btn btn-large btn-block btn-primary">Register</a>
 							</div>
 						</div>
-						<div class="span7 demo-video offset1">
+						<div class="span7 demo-video" style="white-space:nowrap;">
 							<!--[if !IE]> -->
 							<video class="video-js" controls
 								preload="auto" width="620" height="349" poster="images/video/poster.jpg" data-setup="{}">
@@ -111,14 +105,14 @@
 								</video>
 								<![endif]-->
 						</div> <!-- /video -->
-					</div>
+					
 				</div>
 			</div>
 		</div>
-		<footer>
-			<div class="container">
+		<footer class="offset1"style="width:1048px;white-space:nowrap;">
+			<div class="container"style="width:1048px;white-space:nowrap;">
 				<div class="row">
-					<div class="span12">
+					<table class="span12">
 						<div class="span2"><a href="#">site map</a></div>
 						<div class="span2"><a href="#">Join us</a></div>
 						<div class="span2"><a href="#">Privacy policy</a></div>
@@ -131,12 +125,46 @@
 							products to the world!</p>
 						</div>
 								
-					</div>
+					</table>
 						
 				</div>
 					
 			</div><!--container-->
 		</footer>
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div style="margin:20px;">
+		<h3>Register</h3>
+		<div class="row">
+        <div class="span6">
+          <input name="email"type="email" value="" placeholder="BlueRise@BlueRise.com" class="span6" />
+        </div>
+		</div>
+		<div class="row">
+        <div class="span6">
+          <input name="Password"type="password" value="" placeholder="Password" class="span6" />
+        </div>
+		</div>
+		<div class="row">
+        <div class="span6">
+          <input name="Password2"type="password" value="" placeholder="Confirm Password" class="span6" />
+        </div>
+		</div>
+		
+		<div class="row">
+		<div class="span3">
+          <input type="submit"class="btn btn-large btn-block btn-info" value="Submit" onclick="vali()">
+        </div>
+		<div class="span3">
+          <input type="submit"class="btn btn-large btn-block btn-primary" data-dismiss="modal" aria-hidden="true" value="Cancel" >
+        </div>
+		</div>
+		</div>
+		</div>
+		 <!-- Placed at the end of the document so the pages load faster -->
+     <script src="lib/js/jquery.js"></script>
+    <script src="lib/js/bootstrap-transition.js"></script>
+     <script src="lib/js/bootstrap-modal.js"></script>
+    <script src="lib/js/bootstrap-collapse.js"></script>
 	</body>
 	<html>
 		
