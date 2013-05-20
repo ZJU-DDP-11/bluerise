@@ -42,12 +42,13 @@
 	  </div>
 	  <div class="modal-body">
 		<form action="#" method="get">
-			<input type="text" placeholder="">
+			<input type="text" placeholder="name">
+			<input type="text" placeholder="Description" style="height:80px; width:500px;">
 		</form>
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	    <button class="btn btn-primary">Save changes</button>
+	    <button class="btn btn-primary">Save Configurations</button>
 	  </div>
 	</div>
 

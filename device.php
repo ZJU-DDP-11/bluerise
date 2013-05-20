@@ -42,7 +42,8 @@
 	  </div>
 	  <div class="modal-body">
 		<form action="#" method="get">
-			<input type="text" placeholder="">
+			<input type="text" placeholder="name" style="height:40px;">
+			<input type="text" placeholder="Description" style="height:80px; width:500px;">
 		</form>
 	  </div>
 	  <div class="modal-footer">
