@@ -5,7 +5,7 @@
 	<link href="lib/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="./lib/flat/css/flat-ui.css">
 	<style>
-	.row{
+	.namecard-row{
 		margin:0 auto;
 		padding-top:15px;
 		height:30px;
@@ -23,43 +23,61 @@
 	  .itemTitle{
 		  font-weight:bold;
 		  color: inherit;
+		  float: left;
 		  font-size: 20px;
 		  height:30px;
-		  width:50%;
+		  width:45%;
 	  }
 	  .item{
+		  font-weight:bold;
+		  font-size: 20px;
+		  color: inherit;
 		  height:30px;
-		  width: 50%;
+		  width: 45%;
+		  float:right;
+	  }
+	  .Area{
+		  border-radius: 5px;
+		  border: 1px #000 solid;
+		  font-size: 15px;
+		  color: inherit;
+		  font-weight: bold;
+		  height:150px;
+		  width:90%;
+		  margin:0 auto;
+		  
 	  }
 	</style>
 </head>
 <body>
 	<div id="name-card">
-		<div class="row">
+		<div class="namecard-row" style="margin-top:10px;">
 			<div class="itemTitle">
 				<span class="fui-cmd-24"></span>
 				Device Id
 			</div>
 			<div class="item">
-				
+				API Key
 			</div>
 		</div>
-		<div class="row">
+		<div class="namecard-row">
 			<div class="itemTitle">
 				<span class="fui-new-24"></span>
 				Device name
 			</div>
 			<div class="item">
-				
+				<span class="fui-video-24"></span>
+				My device
 			</div>
 		</div>
-		<div class="row">
+		<div class="namecard-row">
 			<div class="itemTitle">
+				<span class="fui-new-24"></span>
 				Description
 			</div>
-			<div class="Area">
-				
-			</div>
+		</div>
+		<div class="Area">
+			Description
 		</div>
 	</div>
 </body>

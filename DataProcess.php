@@ -31,6 +31,48 @@
 			  height:320px;
 			  width:460px;
 		  }
+		  .namecard-row{
+		  	margin:0 auto;
+		  	padding-top:15px;
+		  	height:30px;
+		  	width:90%;
+		  }
+		  #name-card{
+		  	  position:absolute;
+		  	  border:1px solid;
+		  	  margin:80px 0px 10px 520px;
+		  	  border-radius:5px;
+		  	  box-shadow: 2px 2px 2px #888888;
+		  	  height:320px;
+		  	  width:460px;
+		    }
+		    .itemTitle{
+		  	  font-weight:bold;
+		  	  color: inherit;
+		  	  float: left;
+		  	  font-size: 20px;
+		  	  height:30px;
+		  	  width:45%;
+		    }
+		    .item{
+		  	  font-weight:bold;
+		  	  font-size: 20px;
+		  	  color: inherit;
+		  	  height:30px;
+		  	  width: 45%;
+		  	  float:right;
+		    }
+		    .Area{
+		  	  border-radius: 5px;
+		  	  border: 1px #000 solid;
+		  	  font-size: 15px;
+		  	  color: inherit;
+		  	  font-weight: bold;
+		  	  height:150px;
+		  	  width:90%;
+		  	  margin:0 auto;
+		  	  
+		    }
 	</style>
 	";
 	$script = "
@@ -55,38 +97,32 @@
 			<div id="map-canvas"></div>
 		</div>
 		<div id="name-card">
-			<div class="row">
-				<span class="badge badge-success">1</span>
+			<div class="namecard-row" style="margin-top:10px;">
 				<div class="itemTitle">
-					
+					<span class="fui-cmd-24"></span>
+					Device Id
 				</div>
 				<div class="item">
-					
+					API Key
 				</div>
 			</div>
-			<div class="row">
+			<div class="namecard-row">
 				<div class="itemTitle">
-					
+					<span class="fui-video-24"></span>
+					Device name
 				</div>
 				<div class="item">
-					
+					My device
 				</div>
 			</div>
-			<div class="row">
+			<div class="namecard-row">
 				<div class="itemTitle">
-					
-				</div>
-				<div class="item">
-					
+					<span class="fui-new-24"></span>
+					Description
 				</div>
 			</div>
-			<div class="row">
-				<div class="itemTitle">
-					
-				</div>
-				<div class="item">
-					
-				</div>
+			<div class="Area">
+				Description
 			</div>
 		</div>
 		<div id="data-bar">
