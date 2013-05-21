@@ -1,12 +1,5 @@
-<?php 
-	include("header.php");
- ?>
-<html>
-<head>
-	<title>Simple Map</title>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	<meta charset="utf-8">
-	<style>
+<?php
+	$css = "<style>
 		.row{
 			
 		}
@@ -39,10 +32,25 @@
 			  width:460px;
 		  }
 	</style>
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-</head>
-<body>
-	<div id="container" style="width:960px">
+	";
+	$script = "
+	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
+	<script>
+		var map;
+		function initialize() {
+		  var mapOptions = {
+			zoom: 8,
+			center: new google.maps.LatLng(39.92,116.46),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		  map = new google.maps.Map(document.getElementById('map-canvas'),
+			  mapOptions);
+		}
+		
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>";
+	include("header.php");
+ ?>
 		<div id="map-bar">
 			<div id="map-canvas"></div>
 		</div>
@@ -88,17 +96,3 @@
 	</div>
 </body>
 </html>
-<script>
-var map;
-function initialize() {
-  var mapOptions = {
-	zoom: 8,
-	center: new google.maps.LatLng(39.92,116.46),
-	mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-	  mapOptions);
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
