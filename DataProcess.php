@@ -19,7 +19,7 @@
 		  #map-bar{
 			  position:absolute;
 			  border:1px solid;
-			  margin:100px 10px 10px 100px;
+			  margin: 80px 20px 10px 20px;
 			  border-radius:5px;
 			  box-shadow: 2px 2px 2px #888888;
 			  height:320px;
@@ -32,7 +32,7 @@
 		  #name-card{
 			  position:absolute;
 			  border:1px solid;
-			  margin:100px 100px 10px 598px;
+			  margin:80px 0px 10px 520px;
 			  border-radius:5px;
 			  box-shadow: 2px 2px 2px #888888;
 			  height:320px;
@@ -40,28 +40,15 @@
 		  }
 	</style>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-	<script>
-	var map;
-	function initialize() {
-	  var mapOptions = {
-		zoom: 8,
-		center: new google.maps.LatLng(39.92,116.46),
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	  map = new google.maps.Map(document.getElementById('map-canvas'),
-		  mapOptions);
-	}
-	
-	google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
 </head>
 <body>
-	<div id="container">
+	<div id="container" style="width:960px">
 		<div id="map-bar">
 			<div id="map-canvas"></div>
 		</div>
 		<div id="name-card">
 			<div class="row">
+				<span class="badge badge-success">1</span>
 				<div class="itemTitle">
 					
 				</div>
@@ -101,3 +88,17 @@
 	</div>
 </body>
 </html>
+<script>
+var map;
+function initialize() {
+  var mapOptions = {
+	zoom: 8,
+	center: new google.maps.LatLng(39.92,116.46),
+	mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+	  mapOptions);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
