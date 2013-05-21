@@ -7,11 +7,14 @@
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 	<meta charset="utf-8">
 	<style>
+		.row{
+			
+		}
 		#map-canvas {
 			  position:relative;
 			  margin:10px 10px 10px 10px;
-			  height: 200px;
-			  width:400px;
+			  height: 300px;
+			  width:440px;
 		  }
 		  #map-bar{
 			  position:absolute;
@@ -19,17 +22,21 @@
 			  margin:100px 10px 10px 100px;
 			  border-radius:5px;
 			  box-shadow: 2px 2px 2px #888888;
-			  height:220px;
-			  width:420px;
+			  height:320px;
+			  width:460px;
+		  }
+		  #container{
+			  margin-left:auto;
+			  margin-right:auto;
 		  }
 		  #name-card{
 			  position:absolute;
 			  border:1px solid;
-			  margin:100px 10px 10px 100px;
+			  margin:100px 100px 10px 598px;
 			  border-radius:5px;
 			  box-shadow: 2px 2px 2px #888888;
-			  height:220px;
-			  width:420px;
+			  height:320px;
+			  width:460px;
 		  }
 	</style>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -38,7 +45,7 @@
 	function initialize() {
 	  var mapOptions = {
 		zoom: 8,
-		center: new google.maps.LatLng(0, 0),
+		center: new google.maps.LatLng(39.92,116.46),
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	  map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -49,8 +56,48 @@
 	</script>
 </head>
 <body>
-	<div id="map-bar">
-		<div id="map-canvas"></div>
+	<div id="container">
+		<div id="map-bar">
+			<div id="map-canvas"></div>
+		</div>
+		<div id="name-card">
+			<div class="row">
+				<div class="itemTitle">
+					
+				</div>
+				<div class="item">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="itemTitle">
+					
+				</div>
+				<div class="item">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="itemTitle">
+					
+				</div>
+				<div class="item">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="itemTitle">
+					
+				</div>
+				<div class="item">
+					
+				</div>
+			</div>
+		</div>
+		<div id="data-bar">
+		</div>
+		<div id="chart-bar">
+		</div>
 	</div>
 </body>
 </html>
