@@ -34,6 +34,8 @@
 	  <script src="lib/js/jquery.js"></script>
 	  <script src="lib/js/bootstrap-transition.js"></script>
 	  <script src="lib/js/bootstrap-collapse.js"></script>
+     	  <script src="lib/js/bootstrap-modal.js"></script>
+	
 </head>
 <body>
 <div id="container">
