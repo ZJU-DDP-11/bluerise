@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.1
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 21 日 06:25
--- 服务器版本: 5.6.10
--- PHP 版本: 5.3.23
+-- 生成日期: 2013 年 05 月 04 日 01:15
+-- 服务器版本: 5.5.31-0ubuntu0.13.04.1
+-- PHP 版本: 5.4.9-4ubuntu2
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -73,11 +73,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `about` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `password`, `gender`, `registerTime`, `organization`, `website`, `about`) VALUES
+(-1, 'cesczju@gmail.com', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL),
+(0, 'liu.dongyuan@gmail.com', '*FA1357133B2CB7EB2E13B364939C09CBB10C464F', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL),
+(1, 'yeluyupt@gmail.com', '4V', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL);
 
 --
 -- 限制导出的表
 --
+
+--
+-- 限制表 `data`
+--
+ALTER TABLE `data`
+  ADD CONSTRAINT `data_ibfk_1` FOREIGN KEY (`deviceid`) REFERENCES `device` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 限制表 `device`

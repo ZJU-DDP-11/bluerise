@@ -11,8 +11,8 @@ if ($_SESSION["authen"]==false) {
 
 <?php include 'header.php'; ?>
 
-<a href="#addDevice" role="button" class="btn span2 offset9 btn-success" data-toggle="modal">Create Device</a>
-<div id="addDevice" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<a href="#CreateDevice" role="button" class="btn span1 offset0 btn-success" data-toggle="modal">Create</a>
+<div id="CreateDevice" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
 	    <h3 id="myModalLabel">Configure your Device</h3>
@@ -24,8 +24,8 @@ if ($_SESSION["authen"]==false) {
 		</form>
 	  </div>
 	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	    <button class="btn btn-primary">Save Configurations</button>
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+	    <button class="btn btn-primary">Create Device</button>
 	  </div>
 </div>
 
