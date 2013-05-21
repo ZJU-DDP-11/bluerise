@@ -8,26 +8,38 @@ if ($_SESSION["authen"]==false) {
 }
  */
 ?>
-<html>
-<head>
-	<link href="lib/css/bootstrap.css" rel="stylesheet">
-	<link href="lib/css/flat-ui.css" rel="stylesheet">
-	<script src="lib/js/jquery.js"></script>
-    	<script src="lib/js/bootstrap-transition.js"></script>
-     	<script src="lib/js/bootstrap-modal.js"></script>
-    	<script src="lib/js/bootstrap-collapse.js"></script>
 
-	<title>Blue Rise - Your Own Device</title>
-</head>
-<body>
 <?php include 'header.php'; ?>
 
-<div class="container">
 <a href="#addDevice" role="button" class="btn span2 offset9 btn-success" data-toggle="modal">Create Device</a>
 
 <?php
-
+#$userid = $_SESSION['userid'];
+$userid = 1;
+$result = mysqli_query($dbcon, "select * from $tb_device where userid='$userid';");
 ?>
+
+<div class = 'row span14'>
+	<table class = "">
+	<br>
+		<td>Deivce Name</td>
+		<td>Description</td>
+		<td>Manage</td>
+	</br>
+<?php
+while ( ($device = mysql_fetch_array($result)) ) {
+	echo "<tr>";
+	echo "<td>".$device['deviceName']."</td>";
+	echo "<td>".$device['description']."</td>";
+	echo "<td>";
+	echo "<a class='btn btn-primary btn-large btn-block' href='#'>Edit</a>";
+	echo "<a class='btn btn-primary btn-large btn-block' href='#'>Delete</a>";
+	echo "</td>";
+	echo "</tr>";
+}
+?>
+	</table>
+</div>
 
 	<div id="addDevice" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
@@ -46,8 +58,7 @@ if ($_SESSION["authen"]==false) {
 	  </div>
 	</div>
 
-</div>
+
 
 <?php include 'footer.php'; ?>
-</body>
-</html>
+
