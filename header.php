@@ -85,9 +85,9 @@
 	   </div>
 </header>
 <!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
 <script src="lib/js/jquery.js"></script>
 <script src="lib/js/bootstrap-transition.js"></script>
 <script src="lib/js/bootstrap-collapse.js"></script>
-</body>
-</html>
   
