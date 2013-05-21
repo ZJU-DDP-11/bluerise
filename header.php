@@ -69,22 +69,22 @@
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li>
-								<a href="#">
+								<a href="/">
 									Home
 								</a>
 							</li>
 							<li >
-								<a href="#">
+								<a href="/support.php">
 									Support
 								</a>
 							</li>
 							<li>
-								<a href="#">
-									How it works
+								<a href="/how.php">
+									How it Works
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/about.php">
 									About Us
 								</a>
 							</li>
@@ -94,8 +94,3 @@
 			</div><!--navbar-inner-->
 		</div>
 	</div>
-</div>
-<!-- Placed at the end of the document so the pages load faster -->
-</body>
-</html>
-  
