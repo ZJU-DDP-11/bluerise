@@ -87,10 +87,22 @@
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 		 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		 	
 		 	var marker = new google.maps.Marker({
 		 		position:deviceCenter,
+		 		title:'Click to zoom'
 		 	});
 		  	marker.setMap(map);
+		  	
+		  	google.maps.event.addListener(marker,'click',function() {
+		  		map.setZoom(9);
+		  		map.setCenter(marker.getPosition());
+		  	});
+		  	google.maps.event.addListener(map,'center_changed',function() {
+		  	  window.setTimeout(function() {
+		  		map.panTo(marker.getPosition());
+		  	  },2000);
+		  	  });
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);

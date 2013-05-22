@@ -21,6 +21,7 @@
 		  }
 		  #accordion2 {
 		  	margin-left: 760px;
+		  	z-index: 1;
 		  	background-color: white;
 		  	position: absolute;
 			top:30px;
