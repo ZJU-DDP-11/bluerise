@@ -38,6 +38,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
 		infowin = new google.maps.InfoWindow({
 			content: 'Your Device\'s Location:<br>'+'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
 	  	});
+	  	infowin.open(map,marker);
 	  	
 	  	google.maps.event.addListener(marker, 'click', function() {
 	  		infowin.open(map, this);
@@ -62,7 +63,9 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
 		infowin = new google.maps.InfoWindow({
 			content: 'Your Device\'s Location:<br>'+'Latitude: ' + current.lat() + '<br>Longitude: ' + current.lng()
 		});
-	
+		infowin.open(map,marker);
+		
+		
 		google.maps.event.addListener(marker, 'click', function() {
 			infowin.open(map, this);
 		});
