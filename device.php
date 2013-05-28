@@ -32,34 +32,38 @@ if ($_SESSION["authen"]==false) {
 <?php
 #$userid = $_SESSION['userid'];
 $userid = 1;
-$result = mysqli_query($dbcon, "select * from $tb_device where userid='$userid';") or die("Fail selection!");
-?>
+$result = mysqli_query($dbcon, "select * from $tb_device where userid='$userid';") or die("database Fail selection!");
 
-<div name="device table" class = 'span15'>
-	<table class = 'span14' style='text-align: center;'>
-	<tr>
-		<td class='span4'><h2>Deivce ID</h2></td>
-		<td class='span4'><h2>Device Name</h2></td>
-		<td class='span5'><h2>Manage</h2></td>
-	</tr>
 
-<?php
-while ( ($device = mysqli_fetch_array($result)) ) {
-	echo "<tr>";
-	echo "<td class='span4'><h4>".$device['id']."</h4></td>";
-	echo "<td class='span4'><h4>".$device['deviceName']."</h4></td>";
-	echo "<td class='span5'>";
-	echo "<a class='btn btn-medium btn-primary span1' href='#'>Edit</a>";
-	echo "<a class='btn btn-medium btn-danger span1' href='#'>Delete</a>";
-	echo "<a class='btn btn-medium btn-info span1' href='#'>Info</a>";
-	echo "</td>";
-	echo "</tr>";
+if (mysqli_num_rows($result)==  0) 
+	echo "<div class = 'span15 offset1' align='center'><h1>&nbsp</h1><h2>Oops, You haven't add any devices yet</h2></div>";
+else {
+	echo "
+	<div name='device table' class = 'span15'>
+		<table class = 'span14' style='text-align: center;'>
+		<tr>
+			<td class='span4'><h2>Deivce ID</h2></td>
+			<td class='span4'><h2>Device Name</h2></td>
+			<td class='span5'><h2>Manage</h2></td>
+		</tr>
+	";	
+	
+	while ( ($device = mysqli_fetch_array($result)) ) {
+		echo "<tr>";
+		echo "<td class='span4'><h4>".$device['id']."</h4></td>";
+		echo "<td class='span4'><h4>".$device['deviceName']."</h4></td>";
+		echo "<td class='span5'>";
+		echo "<a class='btn btn-medium btn-primary span1' href='#'>Edit</a>";
+		echo "<a class='btn btn-medium btn-danger span1' href='#'>Delete</a>";
+		echo "<a class='btn btn-medium btn-info span1' href='#'>Info</a>";
+		echo "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
 }
 ?>
-	</table>
-</div>
-
 	
+</div>
 
 
 
