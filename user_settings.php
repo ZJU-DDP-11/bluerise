@@ -115,12 +115,12 @@
 			<div class="row demo-row">
 				<div class="span6 offset2">
 					<?php
-						if ($receive_notification) {
+						if ($receive_notification === '1') {
 					?>
 						<label class="checkbox checked" for="receive-email">
 							<span class="icon"></span>
 							<span class="icon-to-fade"></span>
-							<input name="receive_notification" check type="checkbox" value id="receive-email">Receive notifications
+							<input name="receive_notification" checked="checked" type="checkbox" id="receive-email">Receive notifications
 						</label>
 					<?php
 						}
@@ -129,7 +129,7 @@
 						<label class="checkbox" for="receive-email">
 							<span class="icon"></span>
 							<span class="icon-to-fade"></span>
-							<input name="receive_notification" type="checkbox" value id="receive-email">Receive notifications
+							<input name="receive_notification" type="checkbox" id="receive-email">Receive notifications
 						</label>
 					<?php } ?>
 				</div>

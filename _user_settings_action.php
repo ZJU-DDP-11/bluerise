@@ -5,8 +5,11 @@
 	$email = "liu.dongyuan@gmail.com";
 	$organization = $_POST["organization"];
 	$website = $_POST["website"];
-	$about = $_POST["website"];
-	$receive_notification = $_POST["receive_notification"];
+	$about = $_POST["about"];
+	if (isset($_POST["receive_notification"]))
+		$receive_notification = 1;
+	else
+		$receive_notification = 0;
 	$old_password = $_POST["old_password"];
 	$new_password = $_POST["new_password"];
 	$new_password_confirm = $_POST["new_password_confirm"];
