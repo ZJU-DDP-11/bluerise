@@ -74,7 +74,10 @@
 				   	<div class="accordion-heading row">
 				   		<div class="todo-icon fui-man-16" style="padding:0;margin:5px 5px 0 40px;"></div>
 				   		<div id="user-account" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-				   			example@example.com 
+				   			<?php 
+							session_start();
+							echo $_SESSION['email'];
+							?>
 				   		</div>
 				   	</div>
 				   	<div id="collapseOne" class="accordion-body collapse">
