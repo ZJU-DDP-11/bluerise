@@ -3,9 +3,12 @@
 <head>
 	  <meta charset="utf-8">
 	  <!-- Le styles -->
+	  <title>Blue Rise</title>
+	  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	  <link href="lib/css/bootstrap.css" rel="stylesheet">
 	  <link href="lib/css/flat-ui.css" rel="stylesheet">
 	  <link href="lib/css/bootstrap-responsive.css" rel="stylesheet">
+	  <link rel="shortcut icon" href="lib/images/favicon.ico">
 	  <style>
 		  .demo-panel-title{
 			  margin-left:20px;
@@ -25,6 +28,7 @@
 			  white-space:nowrap;
 			  height:100px;
 		  }
+
 		  #container{
 			  margin-left: auto;
 			  margin-right:auto;
@@ -33,7 +37,7 @@
 		  .bar-icon {
 			  margin-left:10px;
 		  }
-		  #user-account{
+		  .word{
 			  overflow:hidden;
 		  }
 		  #accordion2 {
@@ -56,7 +60,7 @@
 	  <script src="lib/js/jquery.js"></script>
 	  <script src="lib/js/bootstrap-transition.js"></script>
 	  <script src="lib/js/bootstrap-collapse.js"></script>
-     	  <script src="lib/js/bootstrap-modal.js"></script>
+	  <script src="lib/js/bootstrap-modal.js"></script>
 	
 </head>
 
