@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 04 日 01:15
+-- 生成日期: 2013 年 05 月 10 日 18:43
 -- 服务器版本: 5.5.31-0ubuntu0.13.04.1
 -- PHP 版本: 5.4.9-4ubuntu2
 
@@ -49,12 +49,36 @@ CREATE TABLE IF NOT EXISTS `device` (
   `description` varchar(255) DEFAULT NULL,
   `userid` int(10) NOT NULL,
   `latitude` double DEFAULT NULL,
-  `longtitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
   `altitude` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   KEY `userid_2` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `testjson`
+--
+
+CREATE TABLE IF NOT EXISTS `testjson` (
+  `json` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `testjson`
+--
+
+INSERT INTO `testjson` (`json`) VALUES
+('{\n"version":"1.0.0",\n"datastreams" : [\n{ "id" : "Tempurature", "current_value" : "29.00" }\n]\n}\n'),
+('{\n"version":"1.0.0",\n"datastreams" : [\n{ "id" : "Humidity", "current_value" : "18.00" }\n]\n}\n'),
+('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Tempurature", "current_value" : "29.00" }\r\n]\r\n}\r\n'),
+('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Humidity", "current_value" : "19.00" }\r\n]\r\n}\r\n'),
+('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Tempurature", "current_value" : "29.00" }\r\n]\r\n}\r\n'),
+('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Humidity", "current_value" : "19.00" }\r\n]\r\n}\r\n'),
+('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Tempurature", "current_value" : "29.00" }\r\n]\r\n}\r\n'),
+('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Humidity", "current_value" : "18.00" }\r\n]\r\n}\r\n');
 
 -- --------------------------------------------------------
 
