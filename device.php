@@ -35,7 +35,7 @@ $userid = 1;
 $result = mysqli_query($dbcon, "select * from $tb_device where userid='$userid';") or die("Fail selection!");
 ?>
 
-<div name="device table" class = 'span15'>
+<div name="device table" class = 'span15' style="height:400px;">
 	<table class = 'span14' style='text-align: center;'>
 	<tr>
 		<td class='span4'><h2>Deivce ID</h2></td>
