@@ -1,8 +1,5 @@
 <?php
 	$css = "<style>
-		.row{
-			
-		}
 		#map-canvas {
 			  position:relative;
 			  margin:10px 10px 10px 10px;

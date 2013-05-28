@@ -29,10 +29,10 @@
 			  height:100px;
 		  }
 
-		  #container{
+		  .container{
 			  margin-left: auto;
 			  margin-right:auto;
-			  width: auto;
+			  width: 960px;
 		  }
 		  .bar-icon {
 			  margin-left:10px;
@@ -65,7 +65,7 @@
 </head>
 
 <body>
-	<div id="container">
+	<div class="container">
 		<header id="header">
 			<h1 class="demo-panel-title">BlueRise</h1>
 			<div class="accordion" id="accordion2">
