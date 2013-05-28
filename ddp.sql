@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 10, 2013 at 08:32 PM
+-- Generation Time: May 10, 2013 at 11:17 PM
 -- Server version: 5.5.31-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2
 
@@ -161,6 +161,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `website` varchar(200) DEFAULT NULL,
   `about` text,
   `receive_notification` tinyint(1) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
@@ -169,10 +170,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `gender`, `registerTime`, `organization`, `website`, `about`, `receive_notification`) VALUES
-(-1, 'cesczju@gmail.com', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0),
-(0, 'liu.dongyuan@gmail.com', '*FA1357133B2CB7EB2E13B364939C09CBB10C464F', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0),
-(1, 'yeluyupt@gmail.com', '4V', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0);
+INSERT INTO `user` (`id`, `email`, `password`, `gender`, `registerTime`, `organization`, `website`, `about`, `receive_notification`, `active`) VALUES
+(-1, 'cesczju@gmail.com', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0, 1),
+(0, 'liu.dongyuan@gmail.com', '*2464E9281B641942C62E0DAC38B6A7315293CCF7', 'M', '2013-05-21 00:00:00', '', '', '', 1, 1),
+(1, 'yeluyupt@gmail.com', '4V', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0, 1);
 
 --
 -- Constraints for dumped tables

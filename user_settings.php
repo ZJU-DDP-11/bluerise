@@ -36,10 +36,25 @@
 	  .marketing p + h4 {
 		margin-top: 28px;
 	  }
+
+	  #change-password-btn {
+	  	height: 41px;
+	  	padding-top: 9px;
+	  }
+
+	  #password-message {
+	  	height: 28px;
+	  	padding-top: 9px;
+	  	padding-bottom: 0px;
+	  }
+
 	</style>
     ";
 	include("header.php");
 ?>
+	<form id="delete_account_form" method="post" action="_user_settings_action.php" style="display: none;">
+		<input name="delete_account" type="hidden" />
+	</form>
 	<form method="post" action="_user_settings_action.php">
 		<div class="container">
 			<?php
@@ -59,10 +74,10 @@
 				<div class="span3 offset2">
 					<input name="email" type="text" disabled="disabled" value="<?php echo $email; ?>" placeholder="meow@meow.com" class="span3" />
 				</div>
-				<div id="change_password" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePasswordLabel" aria-hidden="true">
+				<div id="change-password" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="change-password-label" aria-hidden="true">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-						<h3 id="changePasswordModal">Change Password</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3 id="change-password-modal">Change Password</h3>
 					</div>
 					<div class="modal-body">
 						<div class="span3">
@@ -74,27 +89,25 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button class="btn btn-primary" type="submit">Save changes</button>
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 					</div>
 				</div>
 				<div class="span3">
-					<a href="#change_password" role="button" data-toggle="modal" class="btn btn-large btn-block btn-info">Change Password</a>
+					<a href="#change-password" role="button" data-toggle="modal" class="btn btn-large btn-block btn-info" id="change-password-btn">Change Password</a>
 				</div>
-				<div class="span3">
+				<div class="span6 offset2">
 					<?php
 						if ($_GET['success'] === '0') {
 					?>
-					<div class="alert alert-error">
-						<strong>Error!</strong>
-						<p>Check your password.</p>
+					<div id="password-message" class="alert alert-error">
+						<strong>Error!</strong> Check your password.
 					</div>
 					<?php
 						} else if ($_GET['success'] === '1') {
 					?>
-					<div class="alert alert-success">
-						<strong>Success!</strong>
-						<p>Password changed.</p>
+					<div id="password-message" class="alert alert-success">
+						<strong>Success!</strong> Password changed.
 					</div>
 					<?php } ?>
 				</div>
@@ -141,11 +154,23 @@
 				<div class="span3 offset2">
 					<input type="submit" class="btn btn-large btn-block btn-success" value="Save">
 				</div>
+				<div id="delete-account-modal" class="modal modal hide fade" tabindex="-1" role="dialog" aria-labelledby="delete-account-label" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3 class="alert-heading" id="delete-account-header">Delete Account</h3>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure?</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" onclick="$('#delete_account_form').submit()">Delete This Account</button>
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					</div>
+				</div>
 				<div class="span3 offset1">
-					<a href="deleteAccount.php" class="btn btn-large btn-block btn-danger">Delete Account</a>
+					<a href="#delete-account-modal" role="button" data-toggle="modal" class="btn btn-large btn-block btn-danger">Delete Account</a>
 				</div>
 			</div>
-
 			<div class="row demo-row"></div>
 		</div><!--container-->
 	</form>

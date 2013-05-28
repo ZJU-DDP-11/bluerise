@@ -13,9 +13,20 @@
 	$old_password = $_POST["old_password"];
 	$new_password = $_POST["new_password"];
 	$new_password_confirm = $_POST["new_password_confirm"];
+	if (isset($_POST["delete_account"]))
+		$delete_account = 1;
+	else
+		$delete_account = 0;
+
+	if ($delete_account) {
+		$sql = "UPDATE user SET active = 0 WHERE email = '$email' LIMIT 1";
+		mysqli_query($dbcon, $sql);
+		$page = "index.php";
+		gotoThePage($page);
+	}
 
 	if ($new_password) {
-		$sql = "SELECT * FROM user WHERE email = '$email' and password = password('$old_password')";
+		$sql = "SELECT * FROM user WHERE email = '$email' AND password = password('$old_password')";
 		$result = mysqli_query($dbcon, $sql);
 		$row = mysqli_fetch_array($result);
 		if ($row) {

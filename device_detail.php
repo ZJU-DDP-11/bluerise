@@ -140,7 +140,6 @@
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
 
-	<script src='http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.0.min.js'></script>
 	<script src='http://d3js.org/d3.v3.min.js'></script>
 	<style type="text/css">
 	div.tooltip {

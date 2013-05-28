@@ -14,6 +14,7 @@ session_start();
 	  <link href="lib/css/flat-ui.css" rel="stylesheet">
 	  <link href="lib/css/bootstrap-responsive.css" rel="stylesheet">
 	  <link rel="shortcut icon" href="lib/images/favicon.ico">
+	  <script src='http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.0.min.js'></script>
 	  <style>
 		  .demo-panel-title{
 			  margin-left:20px;
