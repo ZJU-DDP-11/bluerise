@@ -7,9 +7,8 @@ if ($_SESSION["authen"]==false) {
 	exit;
 }
  */
-?>
 
-<?php include 'header.php'; ?>
+ include 'header.php'; ?>
 
 
 <form method="post" action="_manage_device.php">

@@ -10,21 +10,25 @@
 		  .demo-panel-title{
 			  margin-left:20px;
 		  }
+		  #header{
+			  width:1000px;
+			  height:160px;
+			  clear:both;
+			  margin-left: auto;
+			  margin-right:auto;
+		  }
 		  #footer{
 			  clear: both;
-			  width:960px;
-			  margin-left: 30px;
-			  position: relative;
+			  width:1000px;
 			  z-index: 10;
 			  height: 3em;
-			  margin-top: -3em;
 			  white-space:nowrap;
 			  height:100px;
 		  }
 		  #container{
 			  margin-left: auto;
 			  margin-right:auto;
-			  width: 960px;
+			  width: auto;
 		  }
 		  .bar-icon {
 			  margin-left:10px;
@@ -58,7 +62,7 @@
 
 <body>
 	<div id="container">
-		<header>
+		<header id="header">
 			<h1 class="demo-panel-title">BlueRise</h1>
 			<div class="accordion" id="accordion2">
 				<div class="accordion-group" >

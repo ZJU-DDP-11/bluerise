@@ -1,8 +1,5 @@
 <?php
 	$css = "<style>
-		.row{
-			
-		}
 		#map-canvas {
 			  position:relative;
 			  margin:10px 10px 10px 10px;
@@ -147,7 +144,6 @@
 		<div id="data-bar">
 		</div>
 		<div id="chart-bar">
-		</div>
-	</div>
+		</div>e
 </body>
 </html>
