@@ -22,5 +22,5 @@
 	$time=date("Y-m-d h:i:s");
 	$unit=$get_json->datastreams[0]->unit;
     $sql=mysqli_query( $dbcon,"insert into data (deviceid,description,data,time,unit) values('$deviceid','$description','$data','$time','$unit');") or die("Fail to Insert");
-
+	$sql=mysqli_query( $dbcon,"insert into testjson(json) values('$a'');") or die("Fail to Insert");
 ?>
