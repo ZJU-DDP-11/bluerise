@@ -22,6 +22,7 @@
 		  }
 		  #footer{
 			  clear: both;
+			  margin-top: 40px;
 			  width:1000px;
 			  z-index: 10;
 			  height: 3em;
