@@ -107,7 +107,7 @@
 					<input name="website" type="text" value="<?php echo $website; ?>" placeholder="Website" class="span3" />
 				</div>
 				<div class="span8 offset2">
-					<textarea name="about" value="<?php echo $about; ?>" placeholder="About" rows="5" class="span8"></textarea>
+					<textarea name="about" placeholder="About" rows="5" class="span8"><?php echo $about; ?></textarea>
 				</div>
 			</div>
 			

@@ -31,7 +31,8 @@
 		gotoThePage($page);
 	}
 
-	$sql = "UPDATE user SET organization = '$organization', website = '$website', about = '$about', receive_notification = '$receive_notification' WHERE email = '$email' LIMIT 1";
-	mysqli_query($con, $sql);
-
+	$sql = "UPDATE user SET organization = '$organization', website = '$website', about = '$about' WHERE email = '$email' LIMIT 1";
+	mysqli_query($dbcon, $sql);
+	$page = "user_settings.php";
+	gotoThePage($page);
 ?>
