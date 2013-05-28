@@ -71,11 +71,46 @@
 		  	  height:120px;
 		  	  width:90%;
 		  	  margin:0 auto;
-		  	  
 		    }
+		    #data-bar {
+		    border-radius: 5px;
+		    border: 1px #000 solid;
+		    box-shadow: 2px 2px 2px #888888;
+		    position:absolute;
+		    height: 160px;
+		    width: 960px;
+		    top: 520px;
+		    margin-left: 20px;
+		}
+		#data {
+			width: 146px;
+			height: 160px;
+			float: left;
+			padding-left: 14px;
+		}
+		#data h2 {
+			font-size: 16px;
+			color: #c90016;
+		}
+		#data p {
+			font-size: 16px;
+			color: #ffb515;
+			margin-top: 4px;
+			font-size: 40px;
+		}
+		#data date {
+			font-size: 15px;
+			color: #bbb;
+			font-family: 'Helvetica Neue', Arial, sans-serif;
+			font-weight: bold;
+		}
+		#chart {
+			width: 800px;
+			float: left;
+		}
 	</style>
 	";
-	$script = "
+	$script = <<<SCRIPT
 	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
 	<script>
 		var deviceCenter = new google.maps.LatLng(39.92,116.46)
@@ -106,7 +141,123 @@
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>";
+	</script>
+
+	<script src='http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.0.min.js'></script>
+	<script src='http://d3js.org/d3.v3.min.js'></script>
+	<style type="text/css">
+	div.tooltip {
+	  position: absolute;
+	  text-align: center;
+	  padding: 6px 8px;
+	  font: 12px sans-serif;
+	  background: #ffb515;
+	  border-radius: 6px;
+	  color: white;
+	}
+	</style>
+
+	<script type="text/javascript">
+	$(function() {
+	var data_x = [4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3];
+	var data_y = [2660.43, 630.76, 998.77, 2728.24, 316.95, 523.00, 286.97, 1547.14, 1131.29, 2676.57, 559.24, 698.57];
+	var data_max = 2728.24;
+
+	var x_count = 12;
+	var width = 800;
+	var height = 150;
+
+	function calcx(pos) {
+	  return ((width - 50) / (x_count - 1)) * pos + 15;
+	}
+	function calcy(data, max) {
+	  return height - (data / max) * (height - 50) - 30;
+	}
+
+	function maketm(tmid, tmdata, tmdmax) {
+	  var svg = d3.select(tmid)
+	    .append("svg")
+	    .attr("width", width)
+	    .attr("height", height)
+	    .attr("style", "overflow: hidden; position: relative;");
+	  
+	  var pathset = [];
+	  for (var dp = 0; dp < tmdata.length - 1; dp++) {
+	    pathset.push("M"+(calcx(dp))+","+(calcy(tmdata[dp], tmdmax))+"L"+(calcx(dp+1))+","+(calcy(tmdata[dp+1], tmdmax)));
+	  }
+	  svg.selectAll("path")
+	    .data(pathset)
+	    .enter()
+	    .append("path")
+	    .attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
+	    .attr("fill", "none")
+	    .attr("stroke", "#d8e5eb")
+	    .attr("d", function(d) {
+	      return d;
+	    })
+	    .attr("stroke-width", "4px");
+	  
+	  var tooltip = d3.select("body").append("div")   
+	    .attr("class", "tooltip")               
+	    .style("opacity", 0);
+
+	  var circles = svg.selectAll("circle")
+	    .data(tmdata)
+	    .enter()
+	    .append("circle")
+	    .attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;")
+	    .attr("r", 5)
+	    .attr("fill", "#ffffff")
+	    .attr("stroke", "#cee2e9")
+	    .attr("stroke-width", "2.5px")
+	    .attr("cx", function(d, i) {
+	      return calcx(i);
+	    })
+	    .attr("cy", function(d) {
+	      return calcy(d, tmdmax);
+	    })
+	    .on("mouseover", function(d, i) {
+	      d3.select(this).style("stroke", "#ffb515");
+	      tooltip.transition()        
+	        .duration(200)      
+	        .style("opacity", .9);      
+	      tooltip.html(d)
+	        .style("left", d3.event.pageX + "px")     
+	        .style("top", d3.event.pageY - 30 + "px"); 
+	    })
+	    .on("mouseout", function() {
+	      d3.select(this).style("stroke", "#cee2e9");
+	      tooltip.transition()
+	        .duration(200)
+	        .style("opacity", 0);
+	    });
+
+	  svg.selectAll("text")
+	     .data(data_x)
+	     .enter()
+	     .append("text")
+	     .attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: Arial;")
+	     .attr("x", function(d, i) {
+	       return calcx(i);
+	     })
+	     .attr("y", height - 10)
+	     .attr("text-anchor", "middle")
+	     .attr("font-size", "12px")
+	     .attr("font-family", "Arial")
+	     .attr("stroke", "none")
+	     .attr("fill", "#cee2e9")
+	     .append("tspan")
+	     .attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0);")
+	     .attr("dy", "4.1640625")
+	     .text(function(d) {
+	       return d + "月"
+	     });
+	}
+
+	maketm("#chart", data_y, data_max);
+	});
+	</script>
+SCRIPT;
 	include("header.php");
  ?>
 		<div id="map-bar">
@@ -145,8 +296,13 @@
 			</div>
 		</div>
 		<div id="data-bar">
-		</div>
-		<div id="chart-bar">
+			<div id="data">
+			<h2>Temperature</h2>
+			<p>26.1℃</p>
+			<date>2013.04.01 13:00</date>
+			</div>
+			<div id="chart">
+			</div>
 		</div>
 	</div>
 </body>
