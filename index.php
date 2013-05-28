@@ -5,6 +5,13 @@
 		<link href="lib/css/bootstrap.css" rel="stylesheet">
 		<link href="lib/css/flat-ui.css" rel="stylesheet">
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script LANGUAGE="JavaScript"> 
+  		<!-- 
+  		function openwin() { 
+  		window.open ("lostPassWord.php", "newwindow", "height=400, width=400, toolbar =no, menubar=no, scrollbars=no, resizable=no, location=no, 	status=no") //写成一行
+  } 
+  //--> 
+  </script> 
 	 </head>
 	 <body>
 		<div class="container-fluid" style="white-space:nowrap;">
@@ -83,7 +90,7 @@
 							<div class="span4 " style="margin-top:20px";>
 								<a class="btn btn-large btn-block btn-info">Login</a>
 							</div>
-							<div class="span4"><a class="login-link" href="#">Lost your password?</a></div>
+							<div class="span4"><a class="login-link" onclick="openwin()">Lost your password?</a></div>
 							<div class="span4 "style="margin-top:10px";>
 								<a  href="#myModal"data-toggle="modal" role="button" class="btn btn-large btn-block btn-primary">Register</a>
 							</div>
