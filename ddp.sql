@@ -2,10 +2,10 @@
 -- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2013 年 05 月 10 日 18:43
--- 服务器版本: 5.5.31-0ubuntu0.13.04.1
--- PHP 版本: 5.4.9-4ubuntu2
+-- Host: localhost
+-- Generation Time: May 10, 2013 at 08:32 PM
+-- Server version: 5.5.31-0ubuntu0.13.04.1
+-- PHP Version: 5.4.9-4ubuntu2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `ddp`
+-- Database: `ddp`
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `data`
+-- Table structure for table `data`
 --
 
 CREATE TABLE IF NOT EXISTS `data` (
@@ -31,16 +31,52 @@ CREATE TABLE IF NOT EXISTS `data` (
   `deviceid` int(20) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `data` double DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
+  `time` timestamp NULL DEFAULT NULL,
   `unit` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `deviceid` (`deviceid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
+--
+-- Dumping data for table `data`
+--
+
+INSERT INTO `data` (`id`, `deviceid`, `description`, `data`, `time`, `unit`) VALUES
+(1, 1, 'Tempurature', 28, '2013-05-10 00:17:33', 'C'),
+(2, 1, 'Humidity', 18, '2013-05-10 00:17:34', '%'),
+(3, 1, 'Tempurature', 28, '2013-05-10 00:17:50', 'C'),
+(4, 1, 'Humidity', 18, '2013-05-10 00:17:51', '%'),
+(5, 1, 'Tempurature', 28, '2013-05-10 00:18:07', 'C'),
+(6, 1, 'Humidity', 19, '2013-05-10 00:18:08', '%'),
+(7, 1, 'Tempurature', 28, '2013-05-10 00:20:30', 'C'),
+(8, 1, 'Humidity', 19, '2013-05-10 00:20:31', '%'),
+(9, 1, 'Tempurature', 28, '2013-05-10 00:20:48', 'C'),
+(10, 1, 'Humidity', 18, '2013-05-10 00:20:49', '%'),
+(11, 1, 'Tempurature', 28, '2013-05-10 00:21:05', 'C'),
+(12, 1, 'Humidity', 18, '2013-05-10 00:21:06', '%'),
+(13, 1, 'Tempurature', 28, '2013-05-10 00:21:22', 'C'),
+(14, 1, 'Humidity', 19, '2013-05-10 00:21:23', '%'),
+(15, 1, 'Tempurature', 28, '2013-05-10 00:21:39', 'C'),
+(16, 1, 'Humidity', 18, '2013-05-10 00:21:40', '%'),
+(17, 1, 'Tempurature', 28, '2013-05-10 00:21:56', 'C'),
+(18, 1, 'Humidity', 18, '2013-05-10 00:21:57', '%'),
+(19, 1, 'Tempurature', 28, '2013-05-10 00:22:13', 'C'),
+(20, 1, 'Humidity', 18, '2013-05-10 00:22:14', '%'),
+(21, 1, 'Tempurature', 28, '2013-05-10 00:22:31', 'C'),
+(22, 1, 'Humidity', 19, '2013-05-10 00:22:32', '%'),
+(23, 1, 'Tempurature', 28, '2013-05-10 00:22:48', 'C'),
+(24, 1, 'Humidity', 18, '2013-05-10 00:22:49', '%'),
+(25, 1, 'Tempurature', 28, '2013-05-10 00:23:05', 'C'),
+(26, 1, 'Humidity', 19, '2013-05-10 00:23:06', '%'),
+(27, 1, 'Tempurature', 28, '2013-05-10 00:23:22', 'C'),
+(28, 1, 'Humidity', 19, '2013-05-10 00:23:23', '%'),
+(29, 1, 'Tempurature', 28, '2013-05-10 00:23:39', 'C'),
+(30, 1, 'Humidity', 19, '2013-05-10 00:23:40', '%');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `device`
+-- Table structure for table `device`
 --
 
 CREATE TABLE IF NOT EXISTS `device` (
@@ -54,12 +90,19 @@ CREATE TABLE IF NOT EXISTS `device` (
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   KEY `userid_2` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `device`
+--
+
+INSERT INTO `device` (`id`, `deviceName`, `description`, `userid`, `latitude`, `longitude`, `altitude`) VALUES
+(1, 'arduino', 'Li Kaiyuan', 1, 30.06909396443887, 120.3662109375, NULL);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `testjson`
+-- Table structure for table `testjson`
 --
 
 CREATE TABLE IF NOT EXISTS `testjson` (
@@ -67,23 +110,45 @@ CREATE TABLE IF NOT EXISTS `testjson` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `testjson`
+-- Dumping data for table `testjson`
 --
 
 INSERT INTO `testjson` (`json`) VALUES
-('{\n"version":"1.0.0",\n"datastreams" : [\n{ "id" : "Tempurature", "current_value" : "29.00" }\n]\n}\n'),
-('{\n"version":"1.0.0",\n"datastreams" : [\n{ "id" : "Humidity", "current_value" : "18.00" }\n]\n}\n'),
-('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Tempurature", "current_value" : "29.00" }\r\n]\r\n}\r\n'),
-('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Humidity", "current_value" : "19.00" }\r\n]\r\n}\r\n'),
-('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Tempurature", "current_value" : "29.00" }\r\n]\r\n}\r\n'),
-('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Humidity", "current_value" : "19.00" }\r\n]\r\n}\r\n'),
-('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Tempurature", "current_value" : "29.00" }\r\n]\r\n}\r\n'),
-('{\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "id" : "Humidity", "current_value" : "18.00" }\r\n]\r\n}\r\n');
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "19.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "19.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "19.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "19.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "18.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "19.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "19.00", "unit" : "%" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Tempurature", "current_value" : "28.00", "unit" : "C" }\r\n]\r\n}\r\n'),
+('{\r\n"apikey":"00000000000000000001",\r\n"version":"1.0.0",\r\n"datastreams" : [\r\n{ "description" : "Humidity", "current_value" : "19.00", "unit" : "%" }\r\n]\r\n}\r\n');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -95,31 +160,32 @@ CREATE TABLE IF NOT EXISTS `user` (
   `organization` varchar(100) DEFAULT NULL,
   `website` varchar(200) DEFAULT NULL,
   `about` text,
+  `receive_notification` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `gender`, `registerTime`, `organization`, `website`, `about`) VALUES
-(-1, 'cesczju@gmail.com', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL),
-(0, 'liu.dongyuan@gmail.com', '*FA1357133B2CB7EB2E13B364939C09CBB10C464F', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL),
-(1, 'yeluyupt@gmail.com', '4V', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `email`, `password`, `gender`, `registerTime`, `organization`, `website`, `about`, `receive_notification`) VALUES
+(-1, 'cesczju@gmail.com', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0),
+(0, 'liu.dongyuan@gmail.com', '*FA1357133B2CB7EB2E13B364939C09CBB10C464F', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0),
+(1, 'yeluyupt@gmail.com', '4V', 'M', '2013-05-21 00:00:00', NULL, NULL, NULL, 0);
 
 --
--- 限制导出的表
+-- Constraints for dumped tables
 --
 
 --
--- 限制表 `data`
+-- Constraints for table `data`
 --
 ALTER TABLE `data`
   ADD CONSTRAINT `data_ibfk_1` FOREIGN KEY (`deviceid`) REFERENCES `device` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- 限制表 `device`
+-- Constraints for table `device`
 --
 ALTER TABLE `device`
   ADD CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
