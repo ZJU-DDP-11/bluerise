@@ -5,6 +5,7 @@
 	  <!-- Le styles -->
 	  <link href="lib/css/bootstrap.css" rel="stylesheet">
 	  <link href="lib/css/flat-ui.css" rel="stylesheet">
+	  <link href="lib/css/bootstrap-responsive.css" rel="stylesheet">
 	  <style>
 		  .demo-panel-title{
 			  margin-left:20px;
