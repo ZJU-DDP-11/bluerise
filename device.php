@@ -50,11 +50,13 @@ else {
 	";	
 	
 	while ( ($device = mysqli_fetch_array($result)) ) {
+		$deviceid = $device['id'];
+		$deviceName = $device['deviceName'];
 		echo "<tr>";
-		echo "<td class='span4'><h4>".$device['id']."</h4></td>";
-		echo "<td class='span4'><h4>".$device['deviceName']."</h4></td>";
+		echo "<td class='span4'><h4>$deviceid</h4></td>";
+		echo "<td class='span4'><h4>$deviceName</h4></td>";
 		echo "<td class='span5'>";
-		echo "<a class='btn btn-medium btn-primary span1' href='#'>Edit</a>";
+		echo "<a class='btn btn-medium btn-primary span1' href='$editdevicepage?id=$deviceid'>Edit</a>";
 		echo "<a class='btn btn-medium btn-danger span1' href='#'>Delete</a>";
 		echo "<a class='btn btn-medium btn-info span1' href='#'>Info</a>";
 		echo "</td>";

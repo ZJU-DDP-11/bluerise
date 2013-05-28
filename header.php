@@ -22,7 +22,6 @@
 		  }
 		  #footer{
 			  clear: both;
-			  margin-top: 40px;
 			  width:1000px;
 			  z-index: 10;
 			  height: 3em;
@@ -54,7 +53,7 @@
 		  	height: 40px;
 		  }
 	  </style>
-	  <? 
+	  <?php 
 	  	echo $css; 
 	  	echo $script;
 	  ?>
@@ -74,10 +73,7 @@
 				   	<div class="accordion-heading row">
 				   		<div class="todo-icon fui-man-16" style="padding:0;margin:5px 5px 0 40px;"></div>
 				   		<div id="user-account" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-				   			<?php 
-							session_start();
-							echo $_SESSION['email'];
-							?>
+				   			example@example.com 
 				   		</div>
 				   	</div>
 				   	<div id="collapseOne" class="accordion-body collapse">
