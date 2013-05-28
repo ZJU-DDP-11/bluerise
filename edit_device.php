@@ -61,16 +61,11 @@ $script = <<<SCRIPT
 	  	infowin.open(map,marker);
 
 	  	google.maps.event.addListener(marker, 'click', function() {
-	  		infowin.open(map, this);
-	  	});
-	}
-	function GetMarker()
-	{
-		var lng = marker.getPosition().lng();
-		var lat = marker.getPosition().lat();
-		document.getElementById("lng").value = lng;
-		document.getElementById("lat").value = lat;
-		return true;
+			infowin.open(map, this);
+		});
+
+             document.getElementById("lng").value = location.lng();
+             document.getElementById("lat").value = location.lat();
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
@@ -81,18 +76,20 @@ SCRIPT;
 
 <form method="post" action="_manage_device.php">
 	<div class="container">
-		<!-- <?php
-		$deviceid = $_POST['id'];
-		$result = mysqli_query($dbcon, "select * from $tb_device where id='$deviceid';") or die("database Fail selection!");			
-		/*
+		<?php
+		$deviceid = $_GET['id'];
+		$userid = 1;//$_SESSION['userid'];
+		$cmd = "select * from $tb_device where id='$deviceid' and userid = '$userid';";
+		//echo $cmd;
+		$result = mysqli_query($dbcon, $cmd) or die("database Fail selection!");			
+
 		if (mysqli_num_rows($result) == 0) {
 			echo "<h1>No Such Device!</h1>";
 			exit;
 		}
-		 */
 
 		$row = mysqli_fetch_array($result);
-		?> -->
+		?> 
 		
 		<h3 class="demo-panel-title offset1" align="center">Device Info</h3>
 		<div id="map-bar">
@@ -110,6 +107,7 @@ SCRIPT;
 		</div>
 		<input id='lng' name="longitude" type="hidden" value=''>
 		<input id='lat' name="latitude" type="hidden" value=''>
+		<input name = 'id' type = "hidden" value = '<?php echo $deviceid;?>'>
 		<div class="row demo-row">
 			<div class="span3 offset2">
 				<input type="submit" class="btn btn-large btn-block btn-success" value="Save" onclick="return GetMarker();">

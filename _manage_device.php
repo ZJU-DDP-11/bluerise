@@ -12,15 +12,15 @@ if ($_SESSION["authen"]==false) {
 $deviceName = $_POST['deviceName'];
 $description = $_POST['description'];
 $latitude = $_POST['latitude'];
-$longitude = $_POST['longtitude'];
+$longitude = $_POST['longitude'];
 $altitude = $_POST['altitude'];
-$userid = 1; //$_SESSION['id']
+$userid = 1; //$_SESSION['userid']
 $deviceid = $_POST['id']; 
 
 if (!$deviceid) { //Create new deivce
 	$cmd  = "insert into $tb_device(id, deviceName, description, userid, latitude, longitude, altitude) ";
 	$cmd .= "values(null, '$deviceName', '$description', $userid, null, null, null);";
-	mysqli_query($dbcon, $cmd) or die("Can not add new device in database!".mysql_error());
+	mysqli_query($dbcon, $cmd) or die("Can not add new device in database!");
 }
 else {
 	$cmd  = "update $tb_device set ";

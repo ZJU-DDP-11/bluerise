@@ -1,5 +1,9 @@
 <?php
 $homepage	= "index.php";
+$devicepage	= "device.php";
+$editdevicepage = "edit_device.php";
+$_mdevicepage	= "_manage_device.php";
+
 $dbhost 	= "localhost";
 $dbaccount	= "ddp";
 $dbpassword	= "ddprocks";
@@ -7,7 +11,6 @@ $dbname		= "ddp";
 $tb_device	= "device";
 $tb_user	= "user";
 $tb_data	= "data";
-$devicepage	= "device.php";
 
 $dbcon=mysqli_connect($dbhost, $dbaccount, $dbpassword, $dbname) or die("Fail to connect to database: ".mysqli_connect_error());
 

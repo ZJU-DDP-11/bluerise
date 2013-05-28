@@ -42,16 +42,18 @@
 ?>
 	<form method="post" action="_user_settings_action.php">
 		<div class="container">
-			<!-- <?php
-			$email = $_SESSION['username'];
-			$sql = "SELECT * FROM user WHERE username = '$email'";
-			$result = mysqli_query($con, $sql);
+			<?php
+			require "_func_info.php";
+			#$email = $_SESSION['username'];
+			$email = "liu.dongyuan@gmail.com";
+			$sql = "SELECT * FROM user WHERE email = '$email'";
+			$result = mysqli_query($dbcon, $sql);
 			$row = mysqli_fetch_array($result);
 			$organization = $row['organization'];
 			$website = $row['website'];
 			$about = $row['about'];
 			$receive_notification = $row['receive_notification'];
-			?> -->
+			?>
 			<h3 class="demo-panel-title offset1">Basic Info</h3>
 			<div class="row demo-row">
 				<div class="span3 offset2">
@@ -64,22 +66,37 @@
 					</div>
 					<div class="modal-body">
 						<div class="span3">
-							<input name="old_password" type="text" disabled="disabled" placeholder="Old password" class="span3" />
+							<input name="old_password" type="password" placeholder="Old password" class="span3" />
 						</div>
 						<div class="span3">
-							<input name="new_password" type="text" disabled="disabled" placeholder="New password" class="span3" />
-						</div>
-						<div class="span3">
-							<input name="new_password_confirm" type="text" disabled="disabled" placeholder="Confirm password" class="span3" />
+							<input name="new_password" type="password" placeholder="New password" class="span3" />
+							<input name="new_password_confirm" type="password" placeholder="Confirm password" class="span3" />
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button class="btn btn-primary">Save changes</button>
+						<button class="btn btn-primary" type="submit">Save changes</button>
 					</div>
 				</div>
 				<div class="span3">
 					<a href="#change_password" role="button" data-toggle="modal" class="btn btn-large btn-block btn-info">Change Password</a>
+				</div>
+				<div class="span3">
+					<?php
+						if ($_GET['success'] === '0') {
+					?>
+					<div class="alert alert-error">
+						<strong>Error!</strong>
+						<p>Check your password.</p>
+					</div>
+					<?php
+						} else if ($_GET['success'] === '1') {
+					?>
+					<div class="alert alert-success">
+						<strong>Success!</strong>
+						<p>Password changed.</p>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 			
@@ -112,7 +129,7 @@
 						<label class="checkbox" for="receive-email">
 							<span class="icon"></span>
 							<span class="icon-to-fade"></span>
-							<input name="receive_notification" type="checkbox" value id="receive-notification">Receive notifications
+							<input name="receive_notification" type="checkbox" value id="receive-email">Receive notifications
 						</label>
 					<?php } ?>
 				</div>
