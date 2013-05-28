@@ -72,7 +72,7 @@
 			<h3 class="demo-panel-title offset1">Basic Info</h3>
 			<div class="row demo-row">
 				<div class="span3 offset2">
-					<input name="email" type="text" disabled="disabled" value="<?php echo $email; ?>" placeholder="meow@meow.com" class="span3" />
+					<input title="E-mail" name="email" type="text" disabled="disabled" value="<?php echo $email; ?>" placeholder="meow@meow.com" class="span3" />
 				</div>
 				<div id="change-password" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="change-password-label" aria-hidden="true">
 					<div class="modal-header">
@@ -116,11 +116,11 @@
 			<h3 class="demo-panel-title offset1">Detailed Info</h3>
 			<div class="row demo-row">
 				<div class="span3 offset2">
-					<input name="organization" type="text" value="<?php echo $organization; ?>" placeholder="Organization" class="span3" />
-					<input name="website" type="text" value="<?php echo $website; ?>" placeholder="Website" class="span3" />
+					<input title="Organization" name="organization" type="text" value="<?php echo $organization; ?>" placeholder="Organization" class="span3" />
+					<input title="Website" name="website" type="text" value="<?php echo $website; ?>" placeholder="Website" class="span3" />
 				</div>
 				<div class="span8 offset2">
-					<textarea name="about" placeholder="About" rows="5" class="span8"><?php echo $about; ?></textarea>
+					<textarea title="About" name="about" placeholder="About" rows="5" class="span8"><?php echo $about; ?></textarea>
 				</div>
 			</div>
 			
