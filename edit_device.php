@@ -64,10 +64,8 @@ $script = <<<SCRIPT
 			infowin.open(map, this);
 		});
 
-                var lng = marker.getPosition().lng();
-		var lat = marker.getPosition().lat();
-		document.getElementById("lng").value = lng;
-		document.getElementById("lat").value = lat;
+             document.getElementById("lng").value = location.lng();
+             document.getElementById("lat").value = location.lat();
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
