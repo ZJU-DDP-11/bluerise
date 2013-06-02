@@ -47,7 +47,6 @@
 	  	padding-top: 9px;
 	  	padding-bottom: 0px;
 	  }
-
 	</style>
     ";
 	include("header.php");
@@ -59,8 +58,7 @@
 		<div class="container">
 			<?php
 			require "_func_info.php";
-			#$email = $_SESSION['username'];
-			$email = "liu.dongyuan@gmail.com";
+			$email = $_SESSION['email'];
 			$sql = "SELECT * FROM user WHERE email = '$email'";
 			$result = mysqli_query($dbcon, $sql);
 			$row = mysqli_fetch_array($result);
