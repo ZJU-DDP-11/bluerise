@@ -57,7 +57,7 @@ else {
 		echo "<td class='span4'><h4>$deviceName</h4></td>";
 		echo "<td class='span5'>";
 		echo "<a class='btn btn-medium btn-primary span1' href='$editdevicepage?id=$deviceid'>Edit</a>";
-		echo "<a class='btn btn-medium btn-danger span1' href='#'>Delete</a>";
+		echo "<a class='btn btn-medium btn-danger span1' href='$_manage_device?delete=1&id=$deviceid'>Delete</a>";
 		echo "<a class='btn btn-medium btn-info span1' href='$device_detail?id=$deviceid'>Info</a>";
 		echo "</td>";
 		echo "</tr>";
