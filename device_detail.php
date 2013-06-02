@@ -293,7 +293,7 @@
 				<?php echo $device["description"] ?>
 			</div>
 			<div class="namecard-row">
-				<button class="btn btn-primary" onclick="location.href='edit_device.php'">Edit</button>
+				<button class="btn btn-primary" onclick="location.href='<?php echo $editdevicepage."?id=".$deviceid ?>'">Edit</button>
 			</div>
 		</div>
 		<div id="data-bar">

@@ -8,7 +8,7 @@ if ($_SESSION["authen"]==false) {
 }
  */
  $deviceid = $_GET['id'];
- $userid = 1;//$_SESSION['userid'];
+ $userid = $_SESSION['userid'];
  $cmd = "select * from $tb_device where id='$deviceid' and userid = '$userid';";
  //echo $cmd;
  $result = mysqli_query($dbcon, $cmd) or die("database Fail selection!");
