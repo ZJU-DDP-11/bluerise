@@ -170,7 +170,7 @@ if($row['longitude'] == NULL || $row['latitude'] == NULL )
 		<input id='lat' name="latitude" type="hidden" value=''>
 		<input name = 'id' type = "hidden" value = '<?php echo $deviceid;?>'>
 		<div class="row demo-row">
-			<div class="span3 offset2">
+			<div class="span3 offset3">
 				<input type="submit" class="btn btn-large btn-block btn-success" value="Save" onclick="return GetMarker();">
 			</div>
 			<div class="span3 offset1">
