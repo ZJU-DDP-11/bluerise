@@ -1,8 +1,10 @@
+<?php
+	session_start();
+?>
 <meta charset="utf-8">
 <?php
 	require "_func_info.php";
-	#$email = $_SESSION['username'];
-	$email = "liu.dongyuan@gmail.com";
+	$email = $_SESSION['email'];
 	$organization = $_POST["organization"];
 	$website = $_POST["website"];
 	$about = $_POST["about"];

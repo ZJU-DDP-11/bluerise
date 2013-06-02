@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html> 
 <html lang="en">
 <head>
@@ -75,7 +78,6 @@
 				   		<div class="todo-icon fui-man-16" style="padding:0;margin:5px 5px 0 40px;"></div>
 				   		<div id="user-account" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
 				   			<?php 
-							session_start();
 							echo $_SESSION['email'];
 							?>
 				   		</div>
