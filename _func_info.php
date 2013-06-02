@@ -2,6 +2,7 @@
 $homepage	= "index.php";
 $devicepage	= "device.php";
 $editdevicepage = "edit_device.php";
+$device_detail = "device_detail.php";
 $_mdevicepage	= "_manage_device.php";
 
 $dbhost 	= "localhost";
