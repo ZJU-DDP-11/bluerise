@@ -31,8 +31,8 @@ if ($_SESSION["authen"]==false) {
 </div>
 
 <?php
-#$userid = $_SESSION['userid'];
-$userid = 1;
+$userid = $_SESSION['userid'];
+
 $result = mysqli_query($dbcon, "select * from $tb_device where userid='$userid';") or die("database Fail selection!");
 
 

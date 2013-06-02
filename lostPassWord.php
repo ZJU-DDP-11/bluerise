@@ -9,7 +9,7 @@
 </head>
 <body>
  <div class="span3">
- <form action="sendEmail.php" method="get">
+ <form action="_sendEmail.php" method="GET">
   <input class="span3"type="email" name="email" placeholder="Enter your e-mail address">
   <input class="btn btn-large btn-block"type="submit" value="submit">
   </form>

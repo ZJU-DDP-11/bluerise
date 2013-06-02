@@ -1,9 +1,4 @@
-<?php
-
-session_start();
-
-?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 	  <meta charset="utf-8">
@@ -14,7 +9,6 @@ session_start();
 	  <link href="lib/css/flat-ui.css" rel="stylesheet">
 	  <link href="lib/css/bootstrap-responsive.css" rel="stylesheet">
 	  <link rel="shortcut icon" href="lib/images/favicon.ico">
-	  <script src='http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.0.min.js'></script>
 	  <style>
 		  .demo-panel-title{
 			  margin-left:20px;
@@ -28,6 +22,7 @@ session_start();
 		  }
 		  #footer{
 			  clear: both;
+			  margin-top: 40px;
 			  width:1000px;
 			  z-index: 10;
 			  height: 3em;
@@ -59,7 +54,7 @@ session_start();
 		  	height: 40px;
 		  }
 	  </style>
-	  <?php 
+	  <? 
 	  	echo $css; 
 	  	echo $script;
 	  ?>
@@ -79,16 +74,17 @@ session_start();
 				   	<div class="accordion-heading row">
 				   		<div class="todo-icon fui-man-16" style="padding:0;margin:5px 5px 0 40px;"></div>
 				   		<div id="user-account" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-				   			example@example.com 
+				   			<?php 
+							session_start();
+							echo $_SESSION['email'];
+							?>
 				   		</div>
 				   	</div>
 				   	<div id="collapseOne" class="accordion-body collapse">
 				   		<div class="todo-icon fui-settings-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
-				   		<a href="user_settings.php">
-					   		<div class="accordion-inner">
-					   			User setting
-					   		</div>
-				   		</a>
+				   		<div class="accordion-inner">
+				   			User setting
+				   		</div>
 				   		<div class="todo-icon fui-video-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
 				   		<div class="accordion-inner">
 				   			Device
