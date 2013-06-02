@@ -14,7 +14,7 @@ $description = $_POST['description'];
 $latitude = $_POST['latitude'];
 $longitude = $_POST['longitude'];
 $altitude = $_POST['altitude'];
-$userid = 1; //$_SESSION['userid']
+$userid = $_SESSION['userid'];
 $deviceid = $_POST['id']; 
 
 if (!$deviceid) { //Create new deivce
