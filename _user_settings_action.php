@@ -23,6 +23,7 @@
 	if ($delete_account) {
 		$sql = "UPDATE user SET active = 0 WHERE email = '$email' LIMIT 1";
 		mysqli_query($dbcon, $sql);
+		session_destroy();
 		$page = "index.php";
 		gotoThePage($page);
 	}
