@@ -90,13 +90,17 @@ session_start();
 				   			</div>
 				   		</a>
 				   		<div class="todo-icon fui-video-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
-				   		<div class="accordion-inner">
-				   			Device
-				   		</div>
+				   		<a href="device.php">
+							<div class="accordion-inner">
+								Device
+							</div>
+						</a>
 				   		<div class="todo-icon fui-cross-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
-				   		<div class="accordion-inner">
-				   			Log-out
-				   		</div>
+				   		<a href="_log_out.php">
+							<div class="accordion-inner">
+								Log-out
+							</div>
+						</a>
 				   	</div>
 				</div>
 			</div>
