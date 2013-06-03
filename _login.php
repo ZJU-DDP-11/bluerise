@@ -3,7 +3,7 @@ session_start();
 $email=$_POST['email'];
 $password=$_POST['password'];
 include("_func_info.php");
- $result=mysqli_query($dbcon, "SELECT* FROM user WHERE email='$email' and password='PASSWORD($password)'");
+ $result=mysqli_query($dbcon, "SELECT* FROM user WHERE email='$email' AND password=PASSWORD($password)");
  $user=mysqli_fetch_assoc($result);
  if(!empty($result)){
 	$_SESSION['email']=$email;
