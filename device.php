@@ -31,7 +31,7 @@ if ($_SESSION["userid"]==null) {
 </div>
 
 <?php
-$userid = 1;//$_SESSION['userid'];
+$userid = $_SESSION['userid'];
 
 $result = mysqli_query($dbcon, "select * from $tb_device where userid='$userid';") or die("database Fail selection!");
 
@@ -43,7 +43,7 @@ else {
 	<div name='device table' class = 'span15'>
 		<table class = 'span14' style='text-align: center;'>
 		<tr>
-			<td class='span4'><h2>Deivce ID</h2></td>
+			<td class='span4'><h2>Device ID</h2></td>
 			<td class='span4'><h2>Device Name</h2></td>
 			<td class='span5'><h2>Manage</h2></td>
 		</tr>

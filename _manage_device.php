@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("_func_info.php");
-if ( isset($_SESSION["userid"]) ) {
+if ( !isset($_SESSION["userid"]) ) {
 	gotoThePage($homepage);
 	exit;
 }
