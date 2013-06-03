@@ -10,7 +10,7 @@ session_start();
 	  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	  <link href="lib/css/bootstrap.css" rel="stylesheet">
 	  <link href="lib/css/flat-ui.css" rel="stylesheet">
-	  <link href="lib/css/bootstrap-responsive.css" rel="stylesheet">
+	  <script src="lib/js/jquery.js"></script>
 	  <link rel="shortcut icon" href="lib/images/favicon.ico">
 	  <style>
 		  .demo-panel-title{
@@ -61,7 +61,6 @@ session_start();
 	  	echo $css; 
 	  	echo $script;
 	  ?>
-	  <script src="lib/js/jquery.js"></script>
 	  <script src="lib/js/bootstrap-transition.js"></script>
 	  <script src="lib/js/bootstrap-collapse.js"></script>
 	  <script src="lib/js/bootstrap-modal.js"></script>
