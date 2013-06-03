@@ -86,6 +86,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+----------------------------------------------------------------
+--
+--表的结构
+--
+CREATE TABLE IF NOT EXISTS `setpassword`(
+`id` int(10) NOT NULL AUTO_INCREMENT,
+`auth` char (15),
+KEY( `id`,`auth`)
+);
+
 --
 -- 转存表中的数据 `user`
 --
@@ -102,6 +112,12 @@ INSERT INTO `user` (`id`, `email`, `password`, `gender`, `registerTime`, `organi
 --
 ALTER TABLE `device`
   ADD CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+--
+-- 限制表`setpassword`
+--
+ALTER TABLE `setpassword`
+  ADD CONSTRAINT `user` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
