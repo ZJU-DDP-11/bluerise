@@ -21,7 +21,7 @@ else
 		<link href="lib/css/flat-ui.css" rel="stylesheet">
 	</head>
 	<body>
-		<form method="POST" action="resetPassWord.php">
+		<form method="POST" action="_resetPassWord.php">
 			<input value="<?php echo$userid?>" type="hidden"name="userid">
 			<input type="password" name="password">
 			<input type="submit" value="submit">
