@@ -8,17 +8,15 @@ for($i=0;$i<$length;$i++){
 }
 return $random;
 }
-$con =mysql_connect("localhost","wyz","123456")or die("can't connect to database");
-mysql_select_db("ddp",$con);
- mysql_query("set names utf8");
+include("_func_info.php");
 require("PHPMailer-master/class.phpmailer.php");
 $addressEmail=$_REQUEST['email'];
-$select_email=mysql_query("SELECT* FROM user WHERE email='$addressEmail';");
+$select_email=mysqli_query($dbcon,"SELECT* FROM user WHERE email='$addressEmail';");
 if(!empty($select_email)){
-$result=mysql_fetch_assoc($select_email);
+$result=mysqli_fetch_assoc($select_email);
 $code= create_random(15);
 $id=$result['id'];
-$insert_result=mysql_query("INSERT INTO setpassword VALUES('$id','$code')");
+$insert_result=mysqli_query($dbcon,"INSERT INTO setpassword VALUES('$id','$code')");
 $url="http://localhost/bluerise/changePassWord.php?";
 $url.=$addressEmail."&".$code;
 $mail=new PHPMailer();
