@@ -11,7 +11,7 @@ $description = addslashes($_POST['description']);
 $latitude = $_POST['latitude'];
 $longitude = $_POST['longitude'];
 $altitude = $_POST['altitude'];
-$userid = 1;//$_SESSION['userid'];
+$userid = $_SESSION['userid'];
 $deviceid = addslashes($_POST['id']); 
 
 $delete_id = null;

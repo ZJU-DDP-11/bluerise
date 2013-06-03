@@ -1,12 +1,12 @@
 <?php
 session_start();
 include("_func_info.php");
-/*
-if ($_SESSION["authen"]==false) {
+
+if ($_SESSION["userid"]==null) {
 	gotoThePage($homepage);
 	exit;
 }
- */
+
 ?>
 
 <?php include 'header.php'; ?>
