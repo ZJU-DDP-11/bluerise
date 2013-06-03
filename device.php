@@ -31,7 +31,7 @@ if ($_SESSION["authen"]==false) {
 </div>
 
 <?php
-$userid = $_SESSION['userid'];
+$userid = 1;//$_SESSION['userid'];
 
 $result = mysqli_query($dbcon, "select * from $tb_device where userid='$userid';") or die("database Fail selection!");
 
@@ -49,7 +49,7 @@ else {
 		</tr>
 	";	
 	
-	while ( ($device = mysqli_fetch_array($result)) ) {
+	while ( ($device = mysqli_fetch_array($result)) ) if ($device['active'] == 1) {
 		$deviceid = $device['id'];
 		$deviceName = $device['deviceName'];
 		echo "<tr>";
@@ -57,7 +57,7 @@ else {
 		echo "<td class='span4'><h4>$deviceName</h4></td>";
 		echo "<td class='span5'>";
 		echo "<a class='btn btn-medium btn-primary span1' href='$editdevicepage?id=$deviceid'>Edit</a>";
-		echo "<a class='btn btn-medium btn-danger span1' href='$_manage_device?delete=1&id=$deviceid'>Delete</a>";
+		echo "<a class='btn btn-medium btn-danger span1' href='$_mdevicepage?delete=1&id=$deviceid'>Delete</a>";
 		echo "<a class='btn btn-medium btn-info span1' href='$device_detail?id=$deviceid'>Info</a>";
 		echo "</td>";
 		echo "</tr>";
@@ -67,8 +67,6 @@ else {
 ?>
 	
 </div>
-
-
 
 <?php include 'footer.php'; ?>
 

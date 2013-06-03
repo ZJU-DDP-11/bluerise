@@ -57,7 +57,7 @@ session_start();
 		  	height: 40px;
 		  }
 	  </style>
-	  <? 
+	  <?php 
 	  	echo $css; 
 	  	echo $script;
 	  ?>
