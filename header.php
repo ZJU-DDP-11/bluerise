@@ -6,24 +6,24 @@ session_start();
 <head>
 	  <meta charset="utf-8">
 	  <!-- Le styles -->
-	  <title>Blue Rise</title>
+	  <title>BlueRise</title>
 	  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	  <link href="lib/css/bootstrap.css" rel="stylesheet">
 	  <link href="lib/css/flat-ui.css" rel="stylesheet">
 	  <script src="lib/js/jquery.js"></script>
 	  <link rel="shortcut icon" href="lib/images/favicon.ico">
 	  <style>
-		  .demo-panel-title{
+		  .demo-panel-title {
 			  margin-left:20px;
 		  }
-		  #header{
+		  #header {
 			  width:1000px;
 			  height:160px;
 			  clear:both;
 			  margin-left: auto;
 			  margin-right:auto;
 		  }
-		  #footer{
+		  #footer {
 			  clear: both;
 			  margin-top: 40px;
 			  width:1000px;
@@ -33,7 +33,7 @@ session_start();
 			  height:100px;
 		  }
 
-		  .container{
+		  .container {
 			  margin-left: auto;
 			  margin-right:auto;
 			  width: 960px;
@@ -41,7 +41,7 @@ session_start();
 		  .bar-icon {
 			  margin-left:10px;
 		  }
-		  .word{
+		  .word {
 			  overflow:hidden;
 		  }
 		  #accordion2 {
@@ -55,6 +55,13 @@ session_start();
 		  }
 		  #accordion2 .row {
 		  	height: 40px;
+		  }
+		  a {
+		  	text-decoration: none;
+		  	color: rgb(52, 73, 94);
+		  }
+		  a:hover {
+		  	color: #c90016;
 		  }
 	  </style>
 	  <?php 
@@ -84,19 +91,18 @@ session_start();
 				   	<div id="collapseOne" class="accordion-body collapse">
 				   		<a href="user_settings.php">
 				   			<div class="todo-icon fui-settings-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
-				   		<!-- <a href="user_settings.php"> -->
 				   			<div class="accordion-inner">
 				   				User setting
 				   			</div>
 				   		</a>
-				   		<div class="todo-icon fui-video-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
 				   		<a href="device.php">
+				   			<div class="todo-icon fui-video-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
 							<div class="accordion-inner">
 								Device
 							</div>
 						</a>
+						<a href="_log_out.php">
 				   		<div class="todo-icon fui-cross-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
-				   		<a href="_log_out.php">
 							<div class="accordion-inner">
 								Log-out
 							</div>
