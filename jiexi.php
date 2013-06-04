@@ -44,7 +44,7 @@
 	}
 
 	//error_log("AAAAAAAAAAAAABBBBBBBBB!!!shoooooot!!!");
-	$content = mysqli_error($dbcon);
+	$content = mysqli_error($dbcon)."AAAABBBBB!!";
 	mysqli_query($dbcon, "insert into temp_error values($content);");
 	
 	/*
