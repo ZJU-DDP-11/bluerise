@@ -24,16 +24,19 @@
 
 	$file = fopen("./mysqli_error_log.txt","a+");
 	fwrite($file, $a);
+	fwrite($file, '居然写不进来！！ !!!!shoooooot!!!');
 
 	$result = mysqli_query($dbcon, "select * from $tb_datatype where description='$description';");
 	if (!$result) {
 		mysqli_query($dbcon, "insert into $tb_dataype(id, description, unit) values(null, '$description', '$unit');");
 		$result = mysqli_query($dbcon, "select id from $tb_datatype where description='$description';");
-		$typeid = (mysqli_fetch_array($result))['id'];
+		$row = mysqli_fetch_array($result);
+		$typeid = $row['id'];
 		mysqli_query($dbcon, "insert into $tb_data(deviceid, data, time, typeid) values($deviceid, '$data', $time, $typeid);");
 	}
 	else {
-		$typeid = (mysqli_fetch_array($result))['id'];
+		$row = mysqli_fetch_array($result);
+		$typeid = $row['id'];
 		mysqli_query($dbcon, "insert into $tb_data(deviceid, data, time, typeid) values($deviceid, '$data', '$time', $typeid);");
 	}
 
