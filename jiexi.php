@@ -15,12 +15,27 @@
 	$a=file_get_contents('php://input');
 	
 	$get_json=json_decode($a);
-	$deviceid=$get_json->apikey;	
-	$description=$get_json->datastreams[0]->description;
-	$data=$get_json->datastreams[0]->current_value;
+	$deviceid=(int)($get_json->apikey);	
+	$description=addslashes($get_json->datastreams[0]->description);
+	$data=(double)($get_json->datastreams[0]->current_value);
 	date_default_timezone_set('Asia/Hong_Kong');
 	$time=date("Y-m-d h:i:s");
-	$unit=$get_json->datastreams[0]->unit;
-    $sql=mysqli_query( $dbcon,"insert into data (deviceid,description,data,time,unit) values('$deviceid','$description','$data','$time','$unit');") or die("Fail to Insert");
+	$unit=addslashes($get_json->datastreams[0]->unit);
+
+	$result = mysqli_query($dbcon, "select * from $tb_datatype where description='$description';");
+	if (!$result) {
+		mysqli_query($dbcon, "insert into $tb_dataype(id, description, unit) values(null, '$description', '$unit');");
+		$result = mysqli_query($dbcon, "select id from $tb_datatype where description='$description';");
+		$typeid = (mysqli_fetch_array($result))['id'];
+		mysqli_query($dbcon, "insert into $tb_data(deviceid, data, time, typeid) values($deviceid, '$data', $time, $typeid);");
+	}
+	else {
+		$typeid = (mysqli_fetch_array($result))['id'];
+		mysqli_query($dbcon, "insert into $tb_data(deviceid, data, time, typeid) values($deviceid, '$data', '$time', $typeid);");
+	}
+
+	/*
+    $sql=mysqli_query( $dbcon,"insert into $tb_data(deviceid,description,data,time,unit) values($deviceid,'$description','$data','$time','$unit');") or die("Fail to Insert");
 	$sql1=mysqli_query( $dbcon,"insert into testjson(json) values('$a');") or die("Fail to Insert a a a ");
+	 */
 ?>

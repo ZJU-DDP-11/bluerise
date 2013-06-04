@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include("_func_info.php");
 	$deviceid = $_GET["id"];
 	$result_device = mysqli_query($dbcon, "select * from $tb_device where id='$deviceid';") or die("Query device data failed!");
@@ -156,15 +155,51 @@
 	  border-radius: 6px;
 	  color: white;
 	}
-	</style>
+	</style>";
 
-	<script type='text/javascript'>
+$stmt = mysqli_stmt_init($dbcon);
+$query = "select * from $tb_data where deviceid = ? and description = 'Humidity';";
+mysqli_stmt_prepare($stmt, $query) or die("fail on prepare");
+mysqli_stmt_bind_param($stmt, 'i', $deviceid);
+mysqli_stmt_execute($stmt) or die("failed");
+
+$result = mysqli_stmt_get_result($stmt);
+
+$count = 0;
+$data_x = '[';
+$data_y = '[';
+$max = 0;
+$description = 'Humidity';
+$count_max = 6;
+while ($row = mysqli_fetch_array($result)) {
+	if ($count == 0) {
+		$first_data = $row['data'];
+		$unit = $row['unit'];
+		$first_date = $row['time'];
+	}
+
+	$data_y .= $row['data'] . ', ';
+	$date = new DateTime($row['time']);
+	$data_x .= '"' . $date->format("m.d H:i") . '", ';
+	if ($row['data'] > $max) {
+		$max = $row['data'];
+	}
+
+	++$count;
+	if ($count >= $count_max) {
+		break;
+	}
+}
+$data_x .= ']';
+$data_y .= ']';
+
+	$script .= "<script type='text/javascript'>
 	$(function() {
-	var data_x = [4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3];
-	var data_y = [2660.43, 630.76, 998.77, 2728.24, 316.95, 523.00, 286.97, 1547.14, 1131.29, 2676.57, 559.24, 698.57];
-	var data_max = 2728.24;
+	var data_x = $data_x;
+	var data_y = $data_y;
+	var data_max = $max;
 
-	var x_count = 12;
+	var x_count = $count_max;
 	var width = 800;
 	var height = 150;
 
@@ -251,7 +286,7 @@
 	     .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
 	     .attr('dy', '4.1640625')
 	     .text(function(d) {
-	       return d + '月'
+	       return d
 	     });
 	}
 
@@ -298,9 +333,9 @@
 		</div>
 		<div id="data-bar">
 			<div id="data">
-			<h2>Temperature</h2>
-			<p>26.1℃</p>
-			<date>2013.04.01 13:00</date>
+			<h2><?php echo $description; ?></h2>
+			<p><?php echo $first_data; echo $unit; ?></p>
+			<date><?php echo $first_date; ?></date>
 			</div>
 			<div id="chart">
 			</div>
