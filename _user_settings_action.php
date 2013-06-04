@@ -42,7 +42,7 @@
 	}
 
 	/* Change Password */
-	if (isset($new_password)) {
+	if (isset($new_password)) {		/* if changing password */
 		$sql = "SELECT * FROM user WHERE email = ? AND password = PASSWORD(?)";
 		mysqli_stmt_prepare($stmt, $sql);
 		mysqli_stmt_bind_param($stmt, 'ss', $email, $old_password);
@@ -56,7 +56,7 @@
 				mysqli_stmt_execute($stmt);
 				$page = "user_settings.php?success=1";
 			}
-			else {		/* if new password can't pass the confirmation */
+			else {	/* if new password can't pass the confirmation */
 				$page = "user_settings.php?success=0";
 			}
 		}
