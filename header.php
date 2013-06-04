@@ -6,7 +6,7 @@ session_start();
 <head>
 	  <meta charset="utf-8">
 	  <!-- Le styles -->
-	  <title>Blue Rise</title>
+	  <title>BlueRise</title>
 	  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	  <link href="lib/css/bootstrap.css" rel="stylesheet">
 	  <link href="lib/css/flat-ui.css" rel="stylesheet">
