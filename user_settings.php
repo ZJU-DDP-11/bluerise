@@ -1,5 +1,5 @@
 <?php
-    $css="
+    /*$css="
     <style type='text/css'>
     	body {
 		padding-top: 20px;
@@ -7,7 +7,7 @@
 	  }
 	
 	  /* Custom container */
-	  .containernarrow {
+	  /*.containernarrow {
 		margin: 0 auto;
 		max-width: 700px;
 	  }
@@ -16,7 +16,7 @@
 	  }
 	
 	  /* Main marketing message and sign up button */
-	  .jumbotron {
+	  /*.jumbotron {
 		margin: 60px 0;
 		text-align: center;
 	  }
@@ -30,7 +30,7 @@
 	  }
 	
 	  /* Supporting marketing content */
-	  .marketing {
+	  /*.marketing {
 		margin: 60px 0;
 	  }
 	  .marketing p + h4 {
@@ -48,7 +48,7 @@
 	  	padding-bottom: 0px;
 	  }
 	</style>
-    ";
+    ";*/
 	include("header.php");
 ?>
 	<form id="delete_account_form" method="post" action="_user_settings_action.php" style="display: none;">
