@@ -48,7 +48,7 @@
 										
 										<li>
 											<a href="#">
-												How it works
+												How it Works
 												<span class="navbar-unread">1</span>
 											</a>
 										</li>
@@ -122,26 +122,14 @@
 				</div>
 			</div>
 		</div>
-		<footer class="offset1"style="width:1048px;white-space:nowrap;">
-			<div class="container"style="width:1048px;white-space:nowrap;">
+		<footer>
+			<div class="container">
 				<div class="row">
-					<table class="span12">
-						<div class="span2"><a href="#">site map</a></div>
-						<div class="span2"><a href="#">Join us</a></div>
-						<div class="span2"><a href="#">Privacy policy</a></div>
-						<div class="span2"><a href="#">Team of use</a></div>
-						<div class="span2"><a href="#">contact</a></div>
-						<div class="span12">
-						<h4>Where the Internet of things is being built</h4>
-						<p>Connect devices and apps on the BlueRise platform,
-							exchange data and ideas with developers, and bring smart
-							products to the world!</p>
-						</div>
-								
-					</table>
-						
+					<h3 class="footer-title">Where the Internet of things is being built</h3>
+					<p>Connect devices and apps on the BlueRise platform,<br />exchange data and ideas with developers,<br />and bring smart
+						products to the world!</p>
+					<p><br /></p>
 				</div>
-					
 			</div><!--container-->
 		</footer>
 		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
