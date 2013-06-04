@@ -22,7 +22,6 @@
 	$time=date("Y-m-d h:i:s");
 	$unit=addslashes($get_json->datastreams[0]->unit);
 
-	error_log("居然写不进来！！ !!!!shoooooot!!!");
 	/*
 	$file = fopen("./mysqli_error_log.txt","a+");
 	fwrite($file, $a);
@@ -44,7 +43,9 @@
 		mysqli_query($dbcon, "insert into $tb_data(deviceid, data, time, typeid) values($deviceid, '$data', '$time', $typeid);");
 	}
 
-	error_log(mysqli_error($dbcon));
+	//error_log("AAAAAAAAAAAAABBBBBBBBB!!!shoooooot!!!");
+	$content = mysqli_error($dbcon);
+	mysqli_query($dbcon, "insert into temp_error values($content);");
 	
 	/*
     $sql=mysqli_query( $dbcon,"insert into $tb_data(deviceid,description,data,time,unit) values($deviceid,'$description','$data','$time','$unit');") or die("Fail to Insert");
