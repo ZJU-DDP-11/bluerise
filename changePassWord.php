@@ -11,7 +11,7 @@ include("_func_info.php");
 
 	}
 else
-	echo"fail";
+	gotoThePage("index.php");
 
 ?>
 <!DOCTYPE html>
