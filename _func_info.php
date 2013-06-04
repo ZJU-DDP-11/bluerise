@@ -12,6 +12,7 @@ $dbname		= "ddp";
 $tb_device	= "device";
 $tb_user	= "user";
 $tb_data	= "data";
+$tb_datatype	= "datatype";
 
 $dbcon=mysqli_connect($dbhost, $dbaccount, $dbpassword, $dbname) or die("Fail to connect to database: ".mysqli_connect_error());
 
