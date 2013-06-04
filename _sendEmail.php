@@ -17,7 +17,7 @@ $result=mysqli_fetch_assoc($select_email);
 $code= create_random(15);
 $id=$result['id'];
 $insert_result=mysqli_query($dbcon,"INSERT INTO setpassword VALUES('$id','$code')");
-$url="http://localhost/bluerise/changePassWord.php?";
+$url="http://10.71.10.71/changePassWord.php?";
 $url.=$addressEmail."&".$code;
 $mail=new PHPMailer();
 $mail->IsSMTP(); //設定使用SMTP方式寄信  
