@@ -82,8 +82,9 @@ session_start();
 				   		</div>
 				   	</div>
 				   	<div id="collapseOne" class="accordion-body collapse">
-				   		<div class="todo-icon fui-settings-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
 				   		<a href="user_settings.php">
+				   			<div class="todo-icon fui-settings-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
+				   		<!-- <a href="user_settings.php"> -->
 				   			<div class="accordion-inner">
 				   				User setting
 				   			</div>
