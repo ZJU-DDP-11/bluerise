@@ -34,6 +34,10 @@
 		mysqli_query($dbcon, "insert into $tb_data(deviceid, data, time, typeid) values($deviceid, '$data', '$time', $typeid);");
 	}
 
+	$file = fopen("mysqli_error_log.txt","a+");
+	fwrite($file,mysqli_error($dbcon));
+	fclose($file);
+	
 	/*
     $sql=mysqli_query( $dbcon,"insert into $tb_data(deviceid,description,data,time,unit) values($deviceid,'$description','$data','$time','$unit');") or die("Fail to Insert");
 	$sql1=mysqli_query( $dbcon,"insert into testjson(json) values('$a');") or die("Fail to Insert a a a ");
