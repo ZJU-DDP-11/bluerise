@@ -14,10 +14,10 @@
 	$organization = $_POST["organization"];
 	$website = $_POST["website"];
 	$about = $_POST["about"];
-	if (isset($_POST["receive_notification"]))		/* test if recive notification is selected */
-		$receive_notification = 1;					/* won't mind the value of receive_notification */
-	else
-		$receive_notification = 0;
+	// if (isset($_POST["receive_notification"]))		/* test if recive notification is selected */
+	// 	$receive_notification = 1;					/* won't mind the value of receive_notification */
+	// else
+	// 	$receive_notification = 0;
 	/* Password pard */
 	$old_password = $_POST["old_password"];
 	$new_password = $_POST["new_password"];
@@ -68,9 +68,9 @@
 
 	/* Update Informations */
 	/* update the information with the contents submitted */
-	$sql = "UPDATE user SET organization = ?, website = ?, about = ?, receive_notification = ? WHERE email = ? LIMIT 1";
+	$sql = "UPDATE user SET organization = ?, website = ?, about = ? WHERE email = ? LIMIT 1";
 	mysqli_stmt_prepare($stmt, $sql);
-	mysqli_stmt_bind_param($stmt, 'sssis', $organization, $website, $about, $receive_notification, $email);
+	mysqli_stmt_bind_param($stmt, 'ssss', $organization, $website, $about, $email);
 	mysqli_stmt_execute($stmt);
 
 	/* End Task */

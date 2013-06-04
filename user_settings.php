@@ -72,7 +72,7 @@
 				</div>
 			</div>
 			
-			<h3 class="demo-panel-title offset1">Communication Settings</h3>
+<!-- 			<h3 class="demo-panel-title offset1">Communication Settings</h3>
 			<div class="row demo-row">
 				<div class="span6 offset2">
 					<?php
@@ -94,7 +94,7 @@
 						</label>
 					<?php } ?>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="row demo-row"></div>
 
