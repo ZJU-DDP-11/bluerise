@@ -25,6 +25,8 @@
 	$file = fopen("./mysqli_error_log.txt","a+");
 	fwrite($file, $a);
 	fwrite($file, '居然写不进来！！ !!!!shoooooot!!!');
+	fclose($file);
+	/*
 
 	$result = mysqli_query($dbcon, "select * from $tb_datatype where description='$description';");
 	if (!$result) {
