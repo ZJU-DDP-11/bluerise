@@ -81,8 +81,8 @@ session_start();
 			<div class="accordion" id="accordion2">
 				<div class="accordion-group" >
 				   	<div class="accordion-heading row">
-				   		<div class="todo-icon fui-man-16" style="padding:0;margin:5px 5px 0 40px;"></div>
-				   		<div id="user-account" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+				   		<div class="todo-icon fui-man-16" style="padding:2px 0 0 0;margin:5px 5px 0 40px;"></div>
+				   		<div id="user-account" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" style="padding:11px 8px 15px">
 				   			<?php 
 							echo $_SESSION['email'];
 							?>
@@ -92,19 +92,19 @@ session_start();
 				   		<a href="user_settings.php">
 				   			<div class="todo-icon fui-settings-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
 				   			<div class="accordion-inner">
-				   				User setting
+				   				User Settings
 				   			</div>
 				   		</a>
 				   		<a href="device.php">
 				   			<div class="todo-icon fui-video-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
 							<div class="accordion-inner">
-								Device
+								Devices
 							</div>
 						</a>
 						<a href="_log_out.php">
 				   		<div class="todo-icon fui-cross-16" style="padding:0px;margin:5px 5px 0 20px;"></div>
 							<div class="accordion-inner">
-								Log-out
+								Log Out
 							</div>
 						</a>
 				   	</div>
