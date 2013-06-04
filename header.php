@@ -110,22 +110,22 @@ session_start();
 							<div class="nav-collapse collapse">
 								<ul class="nav">
 									<li>
-										<a href="/">
+										<a href="index.php">
 											Home
 										</a>
 									</li>
 									<li >
-										<a href="/support.php">
+										<a href="support.php">
 											Support
 										</a>
 									</li>
 									<li>
-										<a href="/how.php">
+										<a href="how.php">
 											How it Works
 										</a>
 									</li>
 									<li>
-										<a href="/about.php">
+										<a href="about.php">
 											About Us
 										</a>
 									</li>

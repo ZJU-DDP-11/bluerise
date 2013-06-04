@@ -18,130 +18,114 @@
   </script> 
 	 </head>
 	 <body>
-		<div class="container-fluid" style="white-space:nowrap;">
-			<h1 class="demo-panel-title offset1">BlueRise</h1>
+		<div class="container">
+			<h1>BlueRise</h1>
 			<div class="row demo-row">
-				<div class="offset1">
-					<header>
-					<div class="navbar navbar-inverse">
-						<div class="navbar-inner" style="width:1048px;">
-							<div class="container">
-								<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-								<div class="nav-collapse collapse">
-									<ul class="nav">
-										<li>
-											<a href="#">
-												Home
-												<span class="navbar-unread">1</span>
-											</a>
-										</li>
-										<li>
-											<a href="support.html">
-												Support
-												<span class="navbar-unread">1</span>
-											</a>
-										</li>
-										
-										<li>
-											<a href="#">
-												How it works
-												<span class="navbar-unread">1</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												About Us
-												<span class="navbar-unread">1</span>
-											</a>
-										</li>
-									</ul>
-								</div><!--/.nav-collapse -->
-							</div><!--container-->
-						</div><!--navbar-inner-->
-						</header>
-					</div>
-				</div>
-				<div class="row demo-samples offset1"  style="width:1048px;white-space:nowrap;">
-					
-						<div class="span5">
-							<div class="tile">
-								<ul>
+				<header class="span12">
+				<div class="navbar navbar-inverse">
+					<div class="navbar-inner">
+						<div class="container">
+							<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="nav-collapse collapse">
+								<ul class="nav">
 									<li>
-										<div class="todo-content">
-											<div class="todo-icon fui-man-16"></div>
-											<form action="_login.php" method="POST">
-											<div class="control-group inactive">
-												<input type="text" name="email"class="login-field" value="" placeholder="Enter your username" id="login-name" />
-											</div>
-										</div>
-				 
+										<a href="index.php">
+											Home
+											<span class="navbar-unread">1</span>
+										</a>
 									</li>
-
 									<li>
-										<div class="todo-icon fui-lock-16"></div>
-										<div class="todo-content">
-											<div class="control-group inactive">
-												<input type="password"name="password" class="login-field" value="" placeholder="Password" id="login-pass" />
-											</div>
-										</div>
+										<a href="support.php">
+											Support
+											<span class="navbar-unread">1</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="how.php">
+											How it Works
+											<span class="navbar-unread">1</span>
+										</a>
+									</li>
+									<li>
+										<a href="about.php">
+											About Us
+											<span class="navbar-unread">1</span>
+										</a>
 									</li>
 								</ul>
-							</div><!-- tile -->
-		  
-							<div class="span4 " style="margin-top:20px";>
-								<input type="submit"class="btn btn-large btn-block btn-info"value="Login">
+							</div><!--/.nav-collapse -->
+						</div><!--container-->
+					</div><!--navbar-inner-->
+					</header>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<div class="tile">
+							<ul>
+								<li>
+									<div class="todo-content">
+										<div class="todo-icon fui-man-16"></div>
+										<form action="_login.php" method="POST">
+										<div class="control-group inactive">
+											<input type="text" name="email"class="login-field" value="" placeholder="Enter your username" id="login-name" style="width: 160px; margin: 5px 0 0 0;" />
+										</div>
+									</div>
+			 
+								</li>
+
+								<li>
+									<div class="todo-icon fui-lock-16"></div>
+									<div class="todo-content">
+										<div class="control-group inactive">
+											<input type="password"name="password" class="login-field" value="" placeholder="Password" id="login-pass" style="width: 160px; margin: 5px 0 0 0;" />
+										</div>
+									</div>
+								</li>
+							</ul>
+							<div class="span3" style="margin-top:20px";>
+								<input type="submit" class="btn btn-large btn-block btn-info" value="Login">
 							</div>
 							</form>
-							<div class="span4"><a class="login-link" onclick="openwin()">Lost your password?</a></div>
-							<div class="span4 "style="margin-top:10px";>
-								<a  href="#myModal"data-toggle="modal" role="button" class="btn btn-large btn-block btn-primary">Register</a>
+							<div class="span3"><a class="login-link" onclick="openwin()" href="#">Lost your password?</a></div>
+							<div class="span3" style="margin-top:10px";>
+								<a  href="#myModal" data-toggle="modal" role="button" class="btn btn-large btn-block btn-primary">Register</a>
 							</div>
-						</div>
-						<div class="span7 demo-video" style="white-space:nowrap;">
-							<!--[if !IE]> -->
-							<video class="video-js" controls
-								preload="auto" width="620" height="349" poster="images/video/poster.jpg" data-setup="{}">
-								<source src="video/big_buck_bunny.mp4" type="video/mp4">
-								<source src="video/big_buck_bunny.webm" type="video/webm">
-							</video>
-							<!-- <![endif]-->
+							<br clear="both">
+						</div><!-- tile -->
+					</div>
+					<div class="span8 demo-video">
+						<!--[if !IE]> -->
+						<video class="video-js" controls
+							preload="auto" width="620" height="349" poster="images/video/poster.jpg" data-setup="{}">
+							<source src="video/big_buck_bunny.mp4" type="video/mp4">
+							<source src="video/big_buck_bunny.webm" type="video/webm">
+						</video>
+						<!-- <![endif]-->
 
-								<!--[if IE]>
-								<video class="video-js" controls
-								preload="auto" width="620" height="256" poster="http://video-js.zencoder.com/oceans-clip.jpg" data-setup="{}">
-								<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4'/>
-								<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'/>
-								</video>
-								<![endif]-->
-						</div> <!-- /video -->
-					
+							<!--[if IE]>
+							<video class="video-js" controls
+							preload="auto" width="620" height="256" poster="http://video-js.zencoder.com/oceans-clip.jpg" data-setup="{}">
+							<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4'/>
+							<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'/>
+							</video>
+							<![endif]-->
+					</div> <!-- /video -->
 				</div>
 			</div>
 		</div>
-		<footer class="offset1"style="width:1048px;white-space:nowrap;">
-			<div class="container"style="width:1048px;white-space:nowrap;">
+		<footer style="margin-top: 30px;">
+			<div class="container">
 				<div class="row">
-					<table class="span12">
-						<div class="span2"><a href="#">site map</a></div>
-						<div class="span2"><a href="#">Join us</a></div>
-						<div class="span2"><a href="#">Privacy policy</a></div>
-						<div class="span2"><a href="#">Team of use</a></div>
-						<div class="span2"><a href="#">contact</a></div>
-						<div class="span12">
-						<h4>Where the Internet of things is being built</h4>
-						<p>Connect devices and apps on the BlueRise platform,
-							exchange data and ideas with developers, and bring smart
-							products to the world!</p>
-						</div>
-								
-					</table>
-						
+					<h3 class="footer-title">Where the Internet of things is being built</h3>
+					<p>Connect devices and apps on the BlueRise platform,<br />exchange data and ideas with developers,<br />and bring smart
+						products to the world!</p>
+					<p><br /></p>
 				</div>
-					
 			</div><!--container-->
 		</footer>
 		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
