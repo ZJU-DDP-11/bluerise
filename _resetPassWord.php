@@ -4,7 +4,7 @@ $passWord=$_POST['password'];
 include("_func_info.php");
 echo $passWord;
 echo $userid;
-$stmt=mysqli_prepare($dbcon,"UPDATE  user SET password=PASSWORD(?) WHERE id=?;");
+$stmt=mysqli_prepare($dbcon,"UPDATE  user SET password='PASSWORD(?)' WHERE id=?;");
 mysqli_stmt_bind_param($stmt, 'si', $passWord, $userid);
 mysqli_stmt_execute($stmt);
 $row_affect=mysqli_stmt_affected_rows($stmt);
