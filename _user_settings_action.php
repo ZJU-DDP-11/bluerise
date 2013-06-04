@@ -44,9 +44,9 @@
 	/* Change Password */
 	if (isset($new_password)) {
 		$sql = "SELECT * FROM user WHERE email = ? AND password = ?";
-		mysqli_stmt_prepare($stmt, $sql);
-		mysqli_stmt_bind_param($stmt, 'ss', $email, password($old_password));
-		mysqli_stmt_execute($stmt);
+		mysqli_stmt_prepare($stmt, $sql) or die("failed on prepare");
+		mysqli_stmt_bind_param($stmt, 'ss', $email, password('$old_password'));
+		mysqli_stmt_execute($stmt) or die("failed on executing");
 		$result = mysqli_stmt_get_result($stmt);
 		if (mysqli_num_rows($result)) {						/* if old password is right */
 			if ($new_password === $new_password_confirm) {	/* if new password pass the confirmation */
