@@ -1,55 +1,5 @@
 <?php
-    /*$css="
-    <style type='text/css'>
-    	body {
-		padding-top: 20px;
-		padding-bottom: 40px;
-	  }
-	
-	  /* Custom container */
-	  /*.containernarrow {
-		margin: 0 auto;
-		max-width: 700px;
-	  }
-	  .container-narrow > hr {
-		margin: 30px 0;
-	  }
-	
-	  /* Main marketing message and sign up button */
-	  /*.jumbotron {
-		margin: 60px 0;
-		text-align: center;
-	  }
-	  .jumbotron h1 {
-		font-size: 72px;
-		line-height: 1;
-	  }
-	  .jumbotron .btn {
-		font-size: 21px;
-		padding: 14px 24px;
-	  }
-	
-	  /* Supporting marketing content */
-	  /*.marketing {
-		margin: 60px 0;
-	  }
-	  .marketing p + h4 {
-		margin-top: 28px;
-	  }
-
-	  #change-password-btn {
-	  	height: 41px;
-	  	padding-top: 9px;
-	  }
-
-	  #password-message {
-	  	height: 28px;
-	  	padding-top: 9px;
-	  	padding-bottom: 0px;
-	  }
-	</style>
-    ";*/
-	include("header.php");
+	include('header.php');
 ?>
 	<form id="delete_account_form" method="post" action="_user_settings_action.php" style="display: none;">
 		<input name="delete_account" type="hidden" />
@@ -173,7 +123,7 @@
 		</div><!--container-->
 	</form>
 
-	<script src="lib/js/jquery-1.8.2.min.js"></script>
+	<!--<script src="lib/js/jquery-1.8.2.min.js"></script>
 	<script src="lib/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="lib/js/jquery.dropkick-1.0.0.js"></script>
 	<script src="lib/js/custom_checkbox_and_radio.js"></script>
@@ -184,12 +134,6 @@
 	<script src="http://vjs.zencdn.net/c/video.js"></script>
 	<script src="lib/js/application.js"></script>
 	<script src="lib/js/jquery.js"></script>
-	<script src="lib/js/bootstrap-transition.js"></script>
-	<script src="lib/js/bootstrap-collapse.js"></script>
-	<!--[if lt IE 8]>
-	  <script src="js/icon-font-ie7.js"></script>
-	  <script src="js/icon-font-ie7-24.js"></script>
-	<![endif]-->
 	<script type="text/javascript">
 	  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 	  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -199,7 +143,5 @@
 		var pageTracker = _gat._getTracker("UA-19972760-2");
 		pageTracker._trackPageview();
 		} catch(err) {}
-	</script>
-</div>
-</body>
-</html>
+	</script>-->
+<?php include('footer.php'); ?>
