@@ -33,26 +33,26 @@
 							<div class="nav-collapse collapse">
 								<ul class="nav">
 									<li>
-										<a href="#">
+										<a href="index.php">
 											Home
 											<span class="navbar-unread">1</span>
 										</a>
 									</li>
 									<li>
-										<a href="support.html">
+										<a href="support.php">
 											Support
 											<span class="navbar-unread">1</span>
 										</a>
 									</li>
 									
 									<li>
-										<a href="#">
+										<a href="how.php">
 											How it Works
 											<span class="navbar-unread">1</span>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="about.php">
 											About Us
 											<span class="navbar-unread">1</span>
 										</a>

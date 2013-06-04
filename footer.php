@@ -1,6 +1,6 @@
 
 	</div>
-	<footer>
+	<footer style="margin-top: 40px;">
 		<div class="container">
 			<div class="row">
 				<h3 class="footer-title">Where the Internet of things is being built</h3>
