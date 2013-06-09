@@ -21,7 +21,12 @@ if ($_SESSION["userid"]==null) {
 		<form action="_manage_device.php" method="post">
 			<input type="text" placeholder="name" style="height:40px;" name='deviceName'>
 			<input type="text" placeholder="Description" style="height:80px; width:500px;" name='description'>
-			
+			<select name='deviceType'>
+				<option value=0>Default</option>
+				<option value=1>Humidity</option>
+				<option value=2>Luminance</option>
+				<option value=3>Temperature</option>
+			</select>
 	  </div>
 	  <div class="modal-footer">
 	    <input type="submit" class="btn btn-primary" value='Create Device'>

@@ -8,6 +8,7 @@ if ( !isset($_SESSION["userid"]) ) {
 
 $deviceName = addslashes($_POST['deviceName']);
 $description = addslashes($_POST['description']);
+$type = (int)addslashes($_POST['deviceType']);
 $latitude = $_POST['latitude'];
 $longitude = $_POST['longitude'];
 $altitude = $_POST['altitude'];
@@ -40,10 +41,10 @@ if ($delete_id != null) {
 	}
 }
 else if ($deviceid == null) { //Create new deivce
-	$query  = "insert into $tb_device(id, deviceName, description, userid, latitude, longitude, altitude, active) ";
-	$query .= "values(null, ?, ?, ?, null, null, null, 1);";
+	$query  = "insert into $tb_device(id, deviceName, description, type, userid, latitude, longitude, altitude, active) ";
+	$query .= "values(null, ?, ?, ?, ?,null, null, null, 1);";
 	mysqli_stmt_prepare($stmt, $query) or die("dying on prepare for creating new device");
-	mysqli_stmt_bind_param($stmt, 'ssi', $deviceName, $description, $userid);
+	mysqli_stmt_bind_param($stmt, 'ssii', $deviceName, $description, $type, $userid);
 	mysqli_stmt_execute($stmt) or die("Can not add new device in database!");
 	//$query  = "insert into $tb_device(id, deviceName, description, userid, latitude, longitude, altitude, active) ";
 	//$query .= "values(null, '$deviceName', '$description', $userid, null, null, null, 1);";
