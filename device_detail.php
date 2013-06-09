@@ -91,17 +91,17 @@
 		}
 		#data h2 {
 			font-size: 16px;
-			color: #c90016;
+			color: #C0392B;
 		}
-		#data p {
+		#data .data {
 			font-size: 16px;
-			color: #ffb515;
+			color: #F39C12;
 			margin-top: 4px;
 			font-size: 40px;
 		}
 		#data date {
 			font-size: 15px;
-			color: #bbb;
+			color: #34495E;
 			font-family: 'Helvetica Neue', Arial, sans-serif;
 			font-weight: bold;
 		}
@@ -151,7 +151,7 @@
 	  text-align: center;
 	  padding: 6px 8px;
 	  font: 12px sans-serif;
-	  background: #ffb515;
+	  background: #E67E22;
 	  border-radius: 6px;
 	  color: white;
 	}
@@ -241,7 +241,7 @@ $data_y .= ']';
 	    .append('path')
 	    .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
 	    .attr('fill', 'none')
-	    .attr('stroke', '#d8e5eb')
+	    .attr('stroke', '#3498DB')
 	    .attr('d', function(d) {
 	      return d;
 	    })
@@ -258,7 +258,7 @@ $data_y .= ']';
 	    .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;')
 	    .attr('r', 5)
 	    .attr('fill', '#ffffff')
-	    .attr('stroke', '#cee2e9')
+	    .attr('stroke', '#3498DB')
 	    .attr('stroke-width', '2.5px')
 	    .attr('cx', function(d, i) {
 	      return calcx(i);
@@ -267,7 +267,7 @@ $data_y .= ']';
 	      return calcy(d, tmdmax);
 	    })
 	    .on('mouseover', function(d, i) {
-	      d3.select(this).style('stroke', '#ffb515');
+	      d3.select(this).style('stroke', '#E67E22');
 	      tooltip.transition()        
 	        .duration(200)      
 	        .style('opacity', .9);      
@@ -276,7 +276,7 @@ $data_y .= ']';
 	        .style('top', d3.event.pageY - 30 + 'px'); 
 	    })
 	    .on('mouseout', function() {
-	      d3.select(this).style('stroke', '#cee2e9');
+	      d3.select(this).style('stroke', '#3498DB');
 	      tooltip.transition()
 	        .duration(200)
 	        .style('opacity', 0);
@@ -295,7 +295,7 @@ $data_y .= ']';
 	     .attr('font-size', '12px')
 	     .attr('font-family', 'Arial')
 	     .attr('stroke', 'none')
-	     .attr('fill', '#cee2e9')
+	     .attr('fill', '#95A5A6')
 	     .append('tspan')
 	     .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
 	     .attr('dy', '4.1640625')
@@ -348,7 +348,7 @@ $data_y .= ']';
 		<div id="data-bar">
 			<div id="data">
 			<h2><?php echo $description; ?></h2>
-			<p><?php echo $first_data; echo $unit; ?></p>
+			<p class="data"><?php echo $first_data; echo $unit; ?></p>
 			<date><?php echo $first_date; ?></date>
 			</div>
 			<div id="chart">
