@@ -3,16 +3,16 @@
 <head>
 <link href="lib/css/bootstrap.css" rel="stylesheet">
 <link href="lib/css/flat-ui.css" rel="stylesheet">
-<meta name="viewport" content="width=500px,height=400px, initial-scale=1.0"charset=utf-8" />
+<meta name="viewport" content="width=500px,height=400px, initial-scale=1.0" charset="utf-8" />
 
 <title>lost your password?</title>
 </head>
 <body>
- <div class="span3">
- <form action="_sendEmail.php" method="GET">
-  <input class="span3"type="email" name="email" placeholder="Enter your e-mail address">
-  <input class="btn btn-large btn-block"type="submit" value="submit">
-  </form>
-</div>
+    <div class="span2">
+        <form action="_sendEmail.php" method="GET">
+            <input class="span3"type="email" name="email" placeholder="Enter your e-mail address">
+            <input class="btn btn-large btn-block"type="submit" value="submit">
+        </form>
+    </div>
 </body>
 </html>
