@@ -39,20 +39,13 @@
 										</a>
 									</li>
 									<li>
-										<a href="support.php">
-											Support
-											<span class="navbar-unread">1</span>
-										</a>
-									</li>
-									
-									<li>
-										<a href="how.php">
+										<a href="HowWorkBefore.php">
 											How it Works
 											<span class="navbar-unread">1</span>
 										</a>
 									</li>
 									<li>
-										<a href="about.php">
+										<a href="#">
 											About Us
 											<span class="navbar-unread">1</span>
 										</a>
