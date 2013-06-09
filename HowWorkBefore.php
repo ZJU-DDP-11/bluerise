@@ -61,12 +61,7 @@
 		  	color: #c90016;
 		  }
 	  </style>
-		<style type="text/css">
-		  body {
-		    padding-top: 20px;
-		    padding-bottom: 40px;
-		  }
-		
+		<style type="text/css">		
 		  /* Custom container */
 		  .container-narrow {
 		    margin: 0 auto;
@@ -114,6 +109,11 @@
 						<div class="container">
 							<div class="nav-collapse collapse">
 								<ul class="nav">
+									<li>
+										<a href="index.php">
+											Home
+										</a>
+									</li>
 									<li >
 										<a href="HowWorkBefore.php">
 											How it Works
