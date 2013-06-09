@@ -163,7 +163,6 @@ if($row['longitude'] == NULL || $row['latitude'] == NULL )
 				<input name="deviceName" type="text" value="<?php echo $row['deviceName']; ?>" placeholder="device name" class="span3" />
 			</div>
 			<div class="span3 offset1">
-				type
 				<select name='deviceType'>
 					<option value=0>Default</option>
 					<option value=1 <?php if ($row['type'] == 1) echo "selected"; ?>>Humidity</option>
