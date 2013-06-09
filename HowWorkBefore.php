@@ -115,7 +115,7 @@
 							<div class="nav-collapse collapse">
 								<ul class="nav">
 									<li >
-										<a href="HowWorkAfter.php">
+										<a href="HowWorkBefore.php">
 											How it Works
 										</a>
 									</li>

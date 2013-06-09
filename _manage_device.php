@@ -42,7 +42,6 @@ if ($delete_id != null) {
 else if ($deviceid == null) { //Create new deivce
 	$query  = "insert into $tb_device(id, deviceName, description, userid, latitude, longitude, altitude, active) ";
 	$query .= "values(null, ?, ?, ?, null, null, null, 1);";
-	echo "<h1>".$query."</h1>";
 	mysqli_stmt_prepare($stmt, $query) or die("dying on prepare for creating new device");
 	mysqli_stmt_bind_param($stmt, 'ssi', $deviceName, $description, $userid);
 	mysqli_stmt_execute($stmt) or die("Can not add new device in database!");

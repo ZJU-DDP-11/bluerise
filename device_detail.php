@@ -18,20 +18,19 @@
 			  width:440px;
 		  }
 		  #map-bar{
-			  position:absolute;
 			  border:1px solid;
 			  margin: 0px 20px 10px 20px;
 			  border-radius:5px;
 			  box-shadow: 2px 2px 2px #888888;
-			  height:320px;
-			  width:460px;
+			  height: 320px;
+			  width: 460px;
+			  float: left;
 		  }
 		  #container{
 			  margin-left:auto;
 			  margin-right:auto;
 		  }
 		  #name-card{
-			  position:absolute;
 			  border:1px solid;
 			  margin:0px 0px 10px 520px;
 			  border-radius:5px;
@@ -46,14 +45,14 @@
 		  	width:90%;
 		  }
 		
-		.itemTitle{
+		.itemTitle {
 		  font-weight:bold;
 		  color: inherit;
 		  float: left;
 		  font-size: 20px;
 		  height:30px;
 		  width:45%;
-		    }
+		}
 		.item{
 		  	  font-weight:bold;
 		  	  font-size: 20px;
@@ -73,46 +72,45 @@
 		  	  width:90%;
 		  	  margin:0 auto;
 		    }
-		#data-bar {
+		.data-bar {
 		    border-radius: 5px;
 		    border: 1px #000 solid;
 		    box-shadow: 2px 2px 2px #888888;
-		    position:absolute;
-		    height: 160px;
+		    height: 180px;
 		    width: 960px;
-		    top: 520px;
-		    margin-left: 20px;
+		    margin: 20px;
 		}
-		#data {
-			width: 146px;
+		.meta {
+			width: 140px;
 			height: 160px;
 			float: left;
 			padding-left: 14px;
 		}
-		#data h2 {
+		.meta .description {
 			font-size: 16px;
-			color: #c90016;
+			color: #C0392B;
 		}
-		#data p {
+		.meta .data {
 			font-size: 16px;
-			color: #ffb515;
+			color: #F39C12;
 			margin-top: 4px;
 			font-size: 40px;
 		}
-		#data date {
+		.meta .date {
 			font-size: 15px;
-			color: #bbb;
+			color: #34495E;
 			font-family: 'Helvetica Neue', Arial, sans-serif;
 			font-weight: bold;
 		}
-		#chart {
+		.chart {
 			width: 800px;
+			height: 180px;
 			float: left;
 		}
 	</style>
 	";
 
-	$script ="
+	$script = "
 	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
 	<script>
 		var deviceCenter = new google.maps.LatLng(".$lat.",".$lng.")
@@ -144,158 +142,84 @@
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
-	<script src='http://d3js.org/d3.v3.min.js'></script>
-	<style type='text/css'>
-	div.tooltip {
-	  position: absolute;
-	  text-align: center;
-	  padding: 6px 8px;
-	  font: 12px sans-serif;
-	  background: #ffb515;
-	  border-radius: 6px;
-	  color: white;
-	}
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
 	</style>";
 
 $stmt = mysqli_stmt_init($dbcon);
-$query = "select * from $tb_data where deviceid = ? and description = 'Humidity';";
+$query = "select * from $tb_data where deviceid = ?;";
 mysqli_stmt_prepare($stmt, $query) or die("fail on prepare");
 mysqli_stmt_bind_param($stmt, 'i', $deviceid);
 mysqli_stmt_execute($stmt) or die("failed");
 
 $result = mysqli_stmt_get_result($stmt);
 
-$count = 0;
-$data_x = '[';
-$data_y = '[';
-$max = 0;
-$description = 'Humidity';
-$count_max = 6;
+$data_array = array();
 while ($row = mysqli_fetch_array($result)) {
-	if ($count == 0) {
-		$first_data = $row['data'];
-		$unit = $row['unit'];
-		$first_date = $row['time'];
+	$typeid = $row['typeid'];
+	if (!array_key_exists($typeid, $data_array)) {
+		$data_array["$typeid"] = array();
+
+		// get meta data
+		$meta_stmt = mysqli_stmt_init($dbcon);
+		$meta_query = "select * from $tb_datatype where id = ?;";
+		mysqli_stmt_prepare($meta_stmt, $meta_query) or die("fail on prepare");
+		mysqli_stmt_bind_param($meta_stmt, 'i', $typeid);
+		mysqli_stmt_execute($meta_stmt) or die("failed");
+		$meta_result = mysqli_stmt_get_result($meta_stmt);
+		$meta_row = mysqli_fetch_array($meta_result);
+
+		$unit = $meta_row['unit'];
+		$description = $meta_row['description'];
+
+		array_push($data_array["$typeid"], array($unit, $description));
 	}
 
-	$data_y .= $row['data'] . ', ';
 	$date = new DateTime($row['time']);
-	$data_x .= '"' . $date->format("m.d H:i") . '", ';
-	if ($row['data'] > $max) {
-		$max = $row['data'];
-	}
-
-	++$count;
-	if ($count >= $count_max) {
-		break;
-	}
+	$data_item = array($date->format("m.d H:i"), $row['data']);
+	array_push($data_array["$typeid"], $data_item);
 }
-$data_x .= ']';
-$data_y .= ']';
 
-	$script .= "<script type='text/javascript'>
-	$(function() {
-	var data_x = $data_x;
-	var data_y = $data_y;
-	var data_max = $max;
+$data_json = json_encode($data_array);
 
-	var x_count = $count_max;
-	var width = 800;
-	var height = 150;
+$script .= <<<EOF
+<script>
+var all_data = $data_json;
 
-	function calcx(pos) {
-	  return ((width - 50) / (x_count - 1)) * pos + 15;
+google.load("visualization", "1", {packages:["corechart"]});
+
+$(function() {
+	for (typeid in all_data) {
+		var one_data = all_data[typeid];
+		var last_data = one_data[one_data.length - 1][1];
+		if (last_data.toString().length > 5) {
+			last_data = last_data.toFixed(2);
+		}
+		$('#container').append('<div class="data-bar">\
+	<div class="meta">\
+		<h2 class="description">' + one_data[0][1] + '</h2>\
+		<p class="data">' + last_data + one_data[0][0] + '</p>\
+		<date class="date">' + one_data[one_data.length - 1][0] + '</date>\
+	</div>\
+	<div class="chart" id="chart-' + typeid + '"></div>\
+</div>');
+
+		var max_length = 15;
+		if (one_data.length > max_length + 1) {
+			one_data = [one_data[0]].concat(one_data.slice(-max_length));
+		}
+		var data = google.visualization.arrayToDataTable(one_data);
+		var options = {
+			legend: {position: 'none'},
+			chartArea: { left: 30, top: 15, width: 770, height: 130}
+		};
+		var chart = new google.visualization.LineChart(document.getElementById('chart-' + typeid));
+		chart.draw(data, options);
 	}
-	function calcy(data, max) {
-	  return height - (data / max) * (height - 50) - 30;
-	}
+});</script>"
+EOF;
 
-	function maketm(tmid, tmdata, tmdmax) {
-	  var svg = d3.select(tmid)
-	    .append('svg')
-	    .attr('width', width)
-	    .attr('height', height)
-	    .attr('style', 'overflow: hidden; position: relative;');
-	  
-	  var pathset = [];
-	  for (var dp = 0; dp < tmdata.length - 1; dp++) {
-	    pathset.push('M'+(calcx(dp))+','+(calcy(tmdata[dp], tmdmax))+'L'+(calcx(dp+1))+','+(calcy(tmdata[dp+1], tmdmax)));
-	  }
-	  svg.selectAll('path')
-	    .data(pathset)
-	    .enter()
-	    .append('path')
-	    .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
-	    .attr('fill', 'none')
-	    .attr('stroke', '#d8e5eb')
-	    .attr('d', function(d) {
-	      return d;
-	    })
-	    .attr('stroke-width', '4px');
-	  
-	  var tooltip = d3.select('body').append('div')   
-	    .attr('class', 'tooltip')               
-	    .style('opacity', 0);
-
-	  var circles = svg.selectAll('circle')
-	    .data(tmdata)
-	    .enter()
-	    .append('circle')
-	    .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;')
-	    .attr('r', 5)
-	    .attr('fill', '#ffffff')
-	    .attr('stroke', '#cee2e9')
-	    .attr('stroke-width', '2.5px')
-	    .attr('cx', function(d, i) {
-	      return calcx(i);
-	    })
-	    .attr('cy', function(d) {
-	      return calcy(d, tmdmax);
-	    })
-	    .on('mouseover', function(d, i) {
-	      d3.select(this).style('stroke', '#ffb515');
-	      tooltip.transition()        
-	        .duration(200)      
-	        .style('opacity', .9);      
-	      tooltip.html(d)
-	        .style('left', d3.event.pageX + 'px')     
-	        .style('top', d3.event.pageY - 30 + 'px'); 
-	    })
-	    .on('mouseout', function() {
-	      d3.select(this).style('stroke', '#cee2e9');
-	      tooltip.transition()
-	        .duration(200)
-	        .style('opacity', 0);
-	    });
-
-	  svg.selectAll('text')
-	     .data(data_x)
-	     .enter()
-	     .append('text')
-	     .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-family: Arial;')
-	     .attr('x', function(d, i) {
-	       return calcx(i);
-	     })
-	     .attr('y', height - 10)
-	     .attr('text-anchor', 'middle')
-	     .attr('font-size', '12px')
-	     .attr('font-family', 'Arial')
-	     .attr('stroke', 'none')
-	     .attr('fill', '#cee2e9')
-	     .append('tspan')
-	     .attr('style', '-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
-	     .attr('dy', '4.1640625')
-	     .text(function(d) {
-	       return d
-	     });
-	}
-
-	maketm('#chart', data_y, data_max);
-	});
-	</script>";
-
-	include("header.php");
- ?>
+include("header.php");
+?>
 		<div id="map-bar">
 			<div id="map-canvas"></div>
 		</div>
@@ -329,15 +253,6 @@ $data_y .= ']';
 			</div>
 			<div class="namecard-row">
 				<button class="btn btn-primary" onclick="location.href='<?php echo $editdevicepage."?id=".$deviceid ?>'">Edit</button>
-			</div>
-		</div>
-		<div id="data-bar">
-			<div id="data">
-			<h2><?php echo $description; ?></h2>
-			<p><?php echo $first_data; echo $unit; ?></p>
-			<date><?php echo $first_date; ?></date>
-			</div>
-			<div id="chart">
 			</div>
 		</div>
 	</div>
