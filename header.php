@@ -75,7 +75,7 @@ session_start();
 </head>
 
 <body>
-	<div class="container">
+	<div class="container" id="container">
 		<header id="header">
 			<h1 class="demo-panel-title">BlueRise</h1>
 			<div class="accordion" id="accordion2">
