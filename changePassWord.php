@@ -1,7 +1,7 @@
 <?php
 $info=explode("&",$_SERVER["QUERY_STRING"]);
 $info2=explode("%40",$info[0]);
-if(empty($info2[1]){
+if(empty($info2[1])){
 $email=$info2[0];
 }
 else
