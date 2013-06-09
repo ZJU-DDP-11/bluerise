@@ -162,12 +162,21 @@ if($row['longitude'] == NULL || $row['latitude'] == NULL )
 			<div class="span3 offset2">
 				<input name="deviceName" type="text" value="<?php echo $row['deviceName']; ?>" placeholder="device name" class="span3" />
 			</div>
+			<div class="span3 offset1">
+				<select name='deviceType'>
+					<option value=0>Default</option>
+					<option value=1 <?php if ($row['type'] == 1) echo "selected"; ?>>Humidity</option>
+					<option value=2 <?php if ($row['type'] == 2) echo "selected"; ?>>Luminance</option>
+					<option value=3 <?php if ($row['type'] == 3) echo "selected"; ?>>Temperature</option>
+				</select>
+			</div>
 			<div class="span8 offset2">
 				<textarea name="description" placeholder="Description" rows="5" class="span8"><?php echo $row['description']; ?></textarea>
 			</div>
 		</div>
 		<input id='lng' name="longitude" type="hidden" value=''>
 		<input id='lat' name="latitude" type="hidden" value=''>
+		
 		<input name = 'id' type = "hidden" value = '<?php echo $deviceid;?>'>
 		<div class="row demo-row">
 			<div class="span3 offset3">
