@@ -1,7 +1,11 @@
 <?php
 $info=explode("&",$_SERVER["QUERY_STRING"]);
 $info2=explode("%40",$info[0]);
-$email=$info2[0]."@".$info2[1];
+if(empty($info2[1])){
+$email=$info2[0];
+}
+else
+	$email=$info2[0]."@".$info2[1];
 $code=$info[1];
 include("_func_info.php");
  $result=mysqli_query($dbcon,"SELECT user.id FROM setpassword,user WHERE user.email='$email' AND user.id=setpassword.id AND setpassword.auth='$code'");
