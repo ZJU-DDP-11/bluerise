@@ -26,9 +26,9 @@ $mail->SMTPAuth = true; //設定SMTP需要驗證
 $mail->Host ='ssl://smtp.gmail.com'; //設定SMTP主機 
 $mail->Port = 465; //設定SMTP埠位，預設為25埠。
 $mail->CharSet = "utf8";
-$mail->Username = "advancedenglishwriting2@gmail.com";
-$mail->Password = "ewriting2";
-$mail->From = "advancedenglishwriting2@gmail.com";
+$mail->Username = "blueriseweb@gmail.com";
+$mail->Password = "bluerise123";
+$mail->From = "blueriseweb@gmail.com";
 $mail->FromName = "BlueRise";
 $mail->Subject = "BlueRise account change password";
 $mail->Body = "Dear user<br>click the following link to change password<a href=$url> $url</a><br>if  it is not your  account just ignore this email";
