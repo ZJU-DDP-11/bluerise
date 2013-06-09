@@ -158,7 +158,7 @@
 	</style>";
 
 $stmt = mysqli_stmt_init($dbcon);
-$query = "select * from $tb_data where deviceid = ? and description = 'Humidity';";
+$query = "select * from $tb_data where deviceid = ?;";
 mysqli_stmt_prepare($stmt, $query) or die("fail on prepare");
 mysqli_stmt_bind_param($stmt, 'i', $deviceid);
 mysqli_stmt_execute($stmt) or die("failed");
@@ -169,23 +169,37 @@ $count = 0;
 $data_x = '[';
 $data_y = '[';
 $max = 0;
-$description = 'Humidity';
-$count_max = 6;
+$description = '';
+$count_max = 10;
 while ($row = mysqli_fetch_array($result)) {
 	if ($count == 0) {
 		$first_data = $row['data'];
-		$unit = $row['unit'];
 		$first_date = $row['time'];
+		$first_typeid = $row['typeid'];
+
+		// get meta data
+		$meta_stmt = mysqli_stmt_init($dbcon);
+		$meta_query = "select * from $tb_datatype where id = ?;";
+		mysqli_stmt_prepare($meta_stmt, $meta_query) or die("fail on prepare");
+		mysqli_stmt_bind_param($meta_stmt, 'i', $row['typeid']);
+		mysqli_stmt_execute($meta_stmt) or die("failed");
+		$meta_result = mysqli_stmt_get_result($meta_stmt);
+		$meta_row = mysqli_fetch_array($meta_result);
+
+		$unit = $meta_row['unit'];
+		$description = $meta_row['description'];
 	}
 
-	$data_y .= $row['data'] . ', ';
-	$date = new DateTime($row['time']);
-	$data_x .= '"' . $date->format("m.d H:i") . '", ';
-	if ($row['data'] > $max) {
-		$max = $row['data'];
+	if ($row['typeid'] == $first_typeid) {
+		$data_y .= $row['data'] . ', ';
+		$date = new DateTime($row['time']);
+		$data_x .= '"' . $date->format("m.d H:i") . '", ';
+		if ($row['data'] > $max) {
+			$max = $row['data'];
+		}
+		++$count;
 	}
-
-	++$count;
+	
 	if ($count >= $count_max) {
 		break;
 	}
