@@ -8,6 +8,7 @@ if ( !isset($_SESSION["userid"]) ) {
 
 $deviceName = addslashes($_POST['deviceName']);
 $description = addslashes($_POST['description']);
+$type = (int)addslashes($_POST['deviceType']);
 $latitude = $_POST['latitude'];
 $longitude = $_POST['longitude'];
 $altitude = $_POST['altitude'];
@@ -21,7 +22,7 @@ if ($_GET['delete'] == 1) {
 
 $stmt = mysqli_stmt_init($dbcon);  //initial the $stmt
 
-if ($delete_id != null) {
+if ($delete_id != null) {	//Delete the device
 	$query = "select * from $tb_device where id = ?;";
 	mysqli_stmt_prepare($stmt, $query) or die("fail on prepare");
 	mysqli_stmt_bind_param($stmt, 'i', $delete_id); //Set the parameters
@@ -40,26 +41,26 @@ if ($delete_id != null) {
 	}
 }
 else if ($deviceid == null) { //Create new deivce
-	$query  = "insert into $tb_device(id, deviceName, description, userid, latitude, longitude, altitude, active) ";
-	$query .= "values(null, ?, ?, ?, null, null, null, 1);";
-	echo "<h1>".$query."</h1>";
+	$query  = "insert into $tb_device(id, deviceName, description, type, userid, latitude, longitude, altitude, active) ";
+	$query .= "values(null, ?, ?, ?, ?,null, null, null, 1);";
 	mysqli_stmt_prepare($stmt, $query) or die("dying on prepare for creating new device");
-	mysqli_stmt_bind_param($stmt, 'ssi', $deviceName, $description, $userid);
+	mysqli_stmt_bind_param($stmt, 'ssii', $deviceName, $description, $type, $userid);
 	mysqli_stmt_execute($stmt) or die("Can not add new device in database!");
 	//$query  = "insert into $tb_device(id, deviceName, description, userid, latitude, longitude, altitude, active) ";
 	//$query .= "values(null, '$deviceName', '$description', $userid, null, null, null, 1);";
 	//mysqli_query($dbcon, $query) or die("Can not add new device in database!");
 	
 }
-else {
+else {	//Update the device
 	$query  = "update $tb_device set ";
 	$query .= "deviceName = ?, ";
 	$query .= "description = ?, ";
+	$query .= "type = ?, ";
 	$query .= "longitude = ?, ";
 	$query .= "latitude = ? ";
 	$query .= "where userid = ? and id = ? ;";
 	mysqli_stmt_prepare($stmt, $query) or die("die for preparing add new device");
-	mysqli_stmt_bind_param($stmt,'ssddii', $deviceName, $description, $longitude, $latitude, $userid, $deviceid);
+	mysqli_stmt_bind_param($stmt,'ssiddii', $deviceName, $description, $type, $longitude, $latitude, $userid, $deviceid);
 	mysqli_stmt_execute($stmt) or die("Can not add new device in database!"); //execution!
 	/*
 	$query  = "update $tb_device set ";

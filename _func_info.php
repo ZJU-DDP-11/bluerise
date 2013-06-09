@@ -20,4 +20,15 @@ function gotoThePage($page) { //Not appropriate for the pure PHP page without HT
 	echo "<script language='javascript' type='text/javascript'> window.location.href='" . $page . "'</script>";
 }
 
+function devicePicPath($type) {
+	$picPath = "pic/";
+	switch($type) {
+	case 1: return $picPath."humiSen.png";
+	case 2: return $picPath."lightSen.png";
+	case 3: return $picPath."temSen.png";
+	default: break;
+	}
+	return $picPath."DefaultSen.png";
+}
+
 ?>

@@ -75,7 +75,7 @@ session_start();
 </head>
 
 <body>
-	<div class="container">
+	<div class="container" id="container">
 		<header id="header">
 			<h1 class="demo-panel-title">BlueRise</h1>
 			<div class="accordion" id="accordion2">
@@ -116,23 +116,13 @@ session_start();
 						<div class="container">
 							<div class="nav-collapse collapse">
 								<ul class="nav">
-									<li>
-										<a href="index.php">
-											Home
-										</a>
-									</li>
 									<li >
-										<a href="support.php">
-											Support
-										</a>
-									</li>
-									<li>
-										<a href="how.php">
+										<a href="HowWorkAfter.php">
 											How it Works
 										</a>
 									</li>
 									<li>
-										<a href="about.php">
+										<a href="#">
 											About Us
 										</a>
 									</li>

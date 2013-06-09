@@ -21,7 +21,12 @@ if ($_SESSION["userid"]==null) {
 		<form action="_manage_device.php" method="post">
 			<input type="text" placeholder="name" style="height:40px;" name='deviceName'>
 			<input type="text" placeholder="Description" style="height:80px; width:500px;" name='description'>
-			
+			<select name='deviceType'>
+				<option value=0>Default</option>
+				<option value=1>Humidity</option>
+				<option value=2>Luminance</option>
+				<option value=3>Temperature</option>
+			</select>
 	  </div>
 	  <div class="modal-footer">
 	    <input type="submit" class="btn btn-primary" value='Create Device'>
@@ -43,7 +48,8 @@ else {
 	<div name='device table' class = 'span15'>
 		<table class = 'span14' style='text-align: center;'>
 		<tr>
-			<td class='span4'><h2>Device ID</h2></td>
+			<td class='span1'></td>
+			<td class='span3'><h2>Device ID</h2></td>
 			<td class='span4'><h2>Device Name</h2></td>
 			<td class='span5'><h2>Manage</h2></td>
 		</tr>
@@ -52,8 +58,10 @@ else {
 	while ( ($device = mysqli_fetch_array($result)) ) if ($device['active'] == 1) {
 		$deviceid = $device['id'];
 		$deviceName = $device['deviceName'];
+		$deviceTypePicPath = devicePicPath($device['type']);
 		echo "<tr>";
-		echo "<td class='span4'><h4>$deviceid</h4></td>";
+		echo "<td class='span1'><img src='$deviceTypePicPath' style='width:30px; height:30px;'/></td>";
+		echo "<td class='span3'><h4>$deviceid</h4></td>";
 		echo "<td class='span4'><h4>$deviceName</h4></td>";
 		echo "<td class='span5'>";
 		echo "<a class='btn btn-medium btn-primary span1' href='$editdevicepage?id=$deviceid'>Edit</a>";

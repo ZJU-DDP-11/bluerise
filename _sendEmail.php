@@ -12,7 +12,7 @@ include("_func_info.php");
 require("PHPMailer-master/class.phpmailer.php");
 $addressEmail=$_REQUEST['email'];
 $select_email=mysqli_query($dbcon,"SELECT* FROM user WHERE email='$addressEmail';");
-if(!empty($select_email)){
+if(mysqli_num_rows($select_email) != 0){
 $result=mysqli_fetch_assoc($select_email);
 $code= create_random(15);
 $id=$result['id'];
@@ -21,7 +21,7 @@ $url="http://10.71.10.71/changePassWord.php?";
 $url.=$addressEmail."&".$code;
 $mail=new PHPMailer();
 $mail->IsSMTP(); //設定使用SMTP方式寄信  
-$mail->SMTPDebug = 2;
+$mail->SMTPDebug = 0;
 $mail->SMTPAuth = true; //設定SMTP需要驗證
 $mail->Host ='ssl://smtp.gmail.com'; //設定SMTP主機 
 $mail->Port = 465; //設定SMTP埠位，預設為25埠。
