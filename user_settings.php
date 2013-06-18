@@ -1,5 +1,5 @@
 <?php
-	$css="
+	$css = "
 	<style type='text/css'>
 		#change-password-btn {
 			height: 41px;
@@ -12,6 +12,13 @@
 			padding-bottom: 0px;
 		}
 	</style>";
+	$script = "<script>
+$(function() {
+	$('#change-password-btn').click(function() {
+		$('#change-password input').val('');
+	});
+});
+</script>";
 	include('header.php');
 ?>
 	<form id="delete_account_form" method="post" action="_user_settings_action.php" style="display: none;">
